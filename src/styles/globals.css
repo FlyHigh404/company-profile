@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@font-face {
+	font-family: Coolvetica;
+	font-style: normal;
+	font-weight: 200 1000;
+	src: url("/fonts/Coolvetica Rg.otf") format("opentype");
+}
+@import "tailwindcss";
+
+:root {
+	--background: #ededed;
+}
+@media (prefers-color-scheme: dark) {
+	:root {
+		--background: #0a0a0a;
+	}
+}
+
+@theme static {
+	--color-primary-darker: #f4541c;
+	--color-primary-dark: #f1740d;
+	--color-primary-neutral: #fe8d2d;
+	--color-primary-light: #efb442;
+	--color-primary-lighter: #f3c865;
+	--color-primary-lightest: #fce6d1;
+}
+
+@utility typo-h1 {
+	font-family: Coolvetica, sans-serif;
+	font-size: 86px;
+}
+@utility typo-h2 {
+	font-family: Coolvetica, sans-serif;
+	font-size: 56px;
+}
+@utility typo-h3 {
+	font-family: Coolvetica, sans-serif;
+	font-size: 40px;
+}
+@utility typo-h4 {
+	font-family: Coolvetica, sans-serif;
+	font-size: 32px;
+}
+@utility typo-h5 {
+	font-family: Coolvetica, sans-serif;
+	font-size: 24px;
+}
+@utility typo-h6 {
+	font-family: Coolvetica, sans-serif;
+	font-size: 20px;
+}
+
+@utility typo-b-lg {
+	font-family: Poppins, sans-serif;
+	font-size: 20px;
+}
+@utility typo-b-md {
+	font-family: Poppins, sans-serif;
+	font-size: 18px;
+}
+@utility typo-b-rg {
+	font-family: Poppins, sans-serif;
+	font-size: 16px;
+}
+@utility typo-b-sm {
+	font-family: Poppins, sans-serif;
+	font-size: 14px;
+}
+@utility typo-b-tn {
+	font-family: Poppins, sans-serif;
+	font-size: 12px;
+}
