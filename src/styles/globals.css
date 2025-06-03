@@ -25,6 +25,12 @@
 	--color-primary-lightest: #fce6d1;
 }
 
+
+@utility logo-footer {
+	font-family: Coolvetica;
+	font-size: 175px;
+	font-weight: 400;
+}
 @utility typo-h1 {
 	font-family: Coolvetica, sans-serif;
 	font-size: 86px;
