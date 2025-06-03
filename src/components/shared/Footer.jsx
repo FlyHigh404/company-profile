@@ -5,7 +5,7 @@ import Instagram from '../../../public/svgs/Instagram'
 
 export default function Footer() {
   return (
-    <footer className="container">
+    <footer>
       <div className="flex items-center justify-between mx-15 mt-[67px]">
         <div className="flex flex-col">
           <p className="logo-footer bg-gradient-to-r from-[#EF9419] to-[#C94F1E] text-transparent bg-clip-text">FlyHigh</p>
