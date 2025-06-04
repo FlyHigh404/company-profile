@@ -8,12 +8,7 @@
 @import "tailwindcss";
 
 :root {
-	--background: #ededed;
-}
-@media (prefers-color-scheme: dark) {
-	:root {
-		--background: #0a0a0a;
-	}
+	@apply bg-neutral-50;
 }
 
 @theme static {
@@ -23,50 +18,50 @@
 	--color-primary-light: #efb442;
 	--color-primary-lighter: #f3c865;
 	--color-primary-lightest: #fce6d1;
+
+	--font-heading: Coolvetica, sans-serif;
+	--font-body: Poppins, sans-serif;
+}
+
+@utility gradient-color {
+	@apply from-[#ef9419] to-[#c94f1e];
+}
+
+@utility typo-gradient {
+	@apply text-transparent bg-clip-text bg-gradient-to-r gradient-color;
 }
 
 @utility typo-h1 {
-	font-family: Coolvetica, sans-serif;
-	font-size: 86px;
+	@apply font-heading text-[72px]/[120%] md:text-[86px]/[120%];
 }
 @utility typo-h2 {
-	font-family: Coolvetica, sans-serif;
-	font-size: 56px;
+	@apply font-heading text-[42px]/[120%] md:text-[56px]/[120%];
 }
 @utility typo-h3 {
-	font-family: Coolvetica, sans-serif;
-	font-size: 40px;
+	@apply font-heading text-[32px]/[120%] md:text-[40px]/[120%];
 }
 @utility typo-h4 {
-	font-family: Coolvetica, sans-serif;
-	font-size: 32px;
+	@apply font-heading text-[24px]/[120%] md:text-[32px]/[120%];
 }
 @utility typo-h5 {
-	font-family: Coolvetica, sans-serif;
-	font-size: 24px;
+	@apply font-heading text-[20px]/[120%] md:text-[24px]/[120%];
 }
 @utility typo-h6 {
-	font-family: Coolvetica, sans-serif;
-	font-size: 20px;
+	@apply font-heading text-[18px]/[120%] md:text-[20px]/[120%];
 }
 
 @utility typo-b-lg {
-	font-family: Poppins, sans-serif;
-	font-size: 20px;
+	@apply font-body text-[18px] md:text-[20px] leading-snug;
 }
 @utility typo-b-md {
-	font-family: Poppins, sans-serif;
-	font-size: 18px;
+	@apply font-body text-[16px] md:text-[18px] leading-snug;
 }
 @utility typo-b-rg {
-	font-family: Poppins, sans-serif;
-	font-size: 16px;
+	@apply font-body text-[14px] md:text-[16px] leading-snug;
 }
 @utility typo-b-sm {
-	font-family: Poppins, sans-serif;
-	font-size: 14px;
+	@apply font-body text-[12px] md:text-[14px] leading-snug;
 }
 @utility typo-b-tn {
-	font-family: Poppins, sans-serif;
-	font-size: 12px;
+	@apply font-body text-[10px] md:text-[12px] leading-snug;
 }
