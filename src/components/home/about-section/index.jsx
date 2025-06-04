@@ -61,14 +61,10 @@ const expandItemVars = {
 };
 const textRevealVars = {
 	close: {
-		y: 40,
-		opacity: 0,
-		filter: "blur(2px)"
+		opacity: 0.3
 	},
 	open: {
-		y: 0,
 		opacity: 1,
-		filter: "blur(0px)",
 		transition: {
 			duration: 0.8,
 			ease: "easeOut"
@@ -95,7 +91,7 @@ export default function AboutSection() {
 					<div className="px-6 py-12 border-s-2 md:border-s-0 border-neutral-300">
 						<h2 className="typo-h1 typo-gradient">Tentang Flyhigh</h2>
 					</div>
-					<div className="hidden md:flex px-6 py-12 border-s-2 border-neutral-300 items-center justify-center">
+					<div className="flex px-6 py-12 border-t-2 sm:border-t-0 border-s-2 border-neutral-300 items-center justify-center">
 						<Image src={LogoImage} alt="Flyhigh Logo" width={160} height={160} className="w-auto h-40 object-cover" />
 					</div>
 

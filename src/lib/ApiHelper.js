@@ -9,6 +9,7 @@ export class ApiError extends Error {
 
 export function successResponse(statusCode = 200, message = "Operation successful", data = null) {
 	const res = {
+		statusCode,
 		success: true,
 		message,
 		data
@@ -20,6 +21,7 @@ export function successResponse(statusCode = 200, message = "Operation successfu
 
 export function errorResponse(statusCode = 500, message = "Internal Server Error", details = null) {
 	const res = {
+		statusCode,
 		success: false,
 		message
 	};

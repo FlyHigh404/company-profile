@@ -22,13 +22,13 @@ export async function POST(req) {
 		try {
 			CareerSubmissionValidation.parse(data);
 		} catch (validationError) {
-			throw new ApiError(422, "Invalid data provided");
+			throw new ApiError(400, "Invalid data provided");
 		}
 
 		try {
 			await db.ref(`career-submissions/${data.id}`).set(data);
 		} catch (dbError) {
-			throw new ApiError(503, "Database operation failed");
+			throw new ApiError(500, "Database operation failed");
 		}
 
 		return successResponse(201, "Career Submission saved successfully", data);
