@@ -1,4 +1,5 @@
 import "@/styles/globals.css";
+import Footer from "@/components/shared/Footer";
 
 export const metadata = {
 	title: "FlyHigh",
@@ -8,7 +9,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
 	return (
 		<html lang="en">
-			<body>{children}</body>
+			<body>
+				{children}
+			</body>
 		</html>
+		
 	);
 }
