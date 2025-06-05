@@ -1,8 +1,9 @@
 import Footer from "@/components/shared/Footer";
+import AboutSection from "@/components/home/about-section";
 export default function Home() {
 	return (
 		<main>
-			<h1 className="typo-h1 text-primary-neutral">Welcome to FlyHigh! - Home</h1>
+			<AboutSection />
 			<Footer />
 		</main>
 	);
