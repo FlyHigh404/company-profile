@@ -6,8 +6,8 @@ import ArrowToTop from '../../../public/svgs/ArrowToTop'
 
 export default function Footer() {
   return (
-    <footer className="px-5 md:px-8 lg:px-15 py-10 lg:py-20">
-      <div className="flex flex-col md:flex-row justify-between items-start md:gap-8 lg:gap-20 py-10">
+    <footer>
+      <div className="flex items-center justify-between mx-15 mt-[67px]">
         <div className="flex flex-col">
           <p className="typo-h2 md:typo-h2 lg:logo-footer leading-[0.8] text-start  bg-gradient-to-r from-[#EF9419] to-[#C94F1E] text-transparent bg-clip-text pb-5 md:pb-10 lg:pb-12">FlyHigh</p>
           <p className="typo-b-sm md:typo-b-md lg:typo-b-md font-[500] text-neutral-700 cursor-default pb-5 md:pb-10 lg:pb-12">© Copyright {new Date().getFullYear()} by Fly High</p>
