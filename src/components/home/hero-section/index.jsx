@@ -9,7 +9,7 @@ export default function HeroSection() {
 			<Image className="" src="/images/hero2.png" alt="Hero Background" width={1239.5} height={633.8} />
 			</div>
 			<div>
-				<h1 className="typo-h4 md:typo-h3 lg:typo-h2 pb-6 md:pb-9 lg:pb-8 text-neutral-700 px-[2px] md:px-[50px] lg:px-[300px] cursor-default">Inovasi Teknologi untuk Mobilitas yang Lebih Hijau dan Terintegrasi</h1>
+				<h1 className="typo-h4 md:typo-h3 lg:typo-h2 pb-6 md:pb-9 lg:pb-8 text-neutral-700 px-[30px] md:px-[230px] lg:px-[300px] cursor-default">Inovasi Teknologi untuk Mobilitas yang Lebih Hijau dan Terintegrasi</h1>
 				
 				<a href="#"><span className="typo-b-sm md:typo-b-md lg:typo-b-md font-[600] bg-gradient-to-r from-[#EF9419] to-[#C94F1E] p-2.5 md:p-4 px-6 md:px-10  text-neutral-50 rounded-[30px]">Cari Tahu Solusi Kami</span></a>
 			</div>
