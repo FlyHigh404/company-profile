@@ -2,6 +2,7 @@ import Linkedin from '../../../public/svgs/Linkedin'
 import Twitter from '../../../public/svgs/Twitter'
 import Facebook from '../../../public/svgs/Facebook'
 import Instagram from '../../../public/svgs/Instagram'
+import ArrowToTop from '../../../public/svgs/ArrowToTop'
 
 export default function Footer() {
   return (
@@ -57,6 +58,12 @@ export default function Footer() {
           </div>
         </div>
       </div>
+      <a href="#hero">
+        <div className="flex flex-col justify-center items-center gap-2">
+          <ArrowToTop />
+          <p className="typo-b-lg text-neutral-700 font-semibold">Kembali Ke Atas</p>
+        </div>
+      </a>
     </footer>
   )
 }
