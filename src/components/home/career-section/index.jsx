@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export default function CareerSection() {
   return (
-    <section className="px-6 md:px-10 lg:px-20 py-16">
+    <section id="career" className="px-6 md:px-10 lg:px-20 py-16">
       <div className="flex flex-col md:flex-row gap-10 items-center">
         {/* Bagian Gambar */}
         <div className="flex flex-col gap-6 md:w-1/2 w-full">
@@ -16,8 +16,8 @@ export default function CareerSection() {
           <Image
             src="/images/image 3.png"
             alt="Gambar 2"
-            width={588}
-            height={210}
+            width={586}
+            height={164}
             className="rounded-lg shadow-md w-full object-cover"
           />
           <Image
@@ -35,7 +35,7 @@ export default function CareerSection() {
             Investasi pada Pengembangan Talenta
           </h1>
 
-          <p className="text-neutral-700 leading-relaxed">
+          <p className="text-neutral-700 leading-relaxed typo-b-md">
             Bersama FlyHigh, wujudkan potensi terbaikmu! Kami menghadirkan <strong>MAKRO (Magang Kreatif dan Progresif)</strong>,
             program akselerasi talenta digital yang memberikan pengalaman nyata di industri teknologi untuk membentuk SDM unggul.
             FlyHigh juga membuka berbagai lowongan kerja bagi Anda yang siap bertumbuh dan berkontribusi dalam membangun inovasi masa depan.
