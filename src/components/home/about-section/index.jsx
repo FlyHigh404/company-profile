@@ -3,8 +3,8 @@
 import LogoImage from "@/assets/images/flyhigh-logo.png";
 import { InfiniteElement } from "@/components/shared/animations/InfiniteElement";
 import Image from "next/image";
-import { Fragment, useState } from "react";
-import { motion } from "motion/react";
+import { Fragment, useRef, useState } from "react";
+import { motion, useScroll, useSpring } from "motion/react";
 
 const data = {
 	about: [
@@ -83,10 +83,20 @@ export default function AboutSection() {
 		});
 	};
 
+	const ref = useRef(null);
+	const { scrollYProgress } = useScroll({
+		target: ref,
+		offset: ["start center", "end center"]
+	});
+	const smoothY = useSpring(scrollYProgress, {
+		damping: 20,
+		stiffness: 40
+	});
+
 	return (
 		<section className="w-full min-h-screen">
 			{/* Main About */}
-			<div className="px-6 lg:px-16 py-16">
+			<div ref={ref} className="px-6 lg:px-16 py-16">
 				<div className="relative grid grid-cols-1 md:grid-cols-2">
 					<div className="px-6 py-12 border-s-2 md:border-s-0 border-neutral-300">
 						<h2 className="typo-h1 typo-gradient">Tentang Flyhigh</h2>
@@ -130,11 +140,8 @@ export default function AboutSection() {
 					})}
 
 					<motion.div
-						viewport={{ once: true, amount: 0.5 }}
-						initial={{ scaleY: 0 }}
-						whileInView={{ scaleY: 1 }}
-						transition={{ duration: 2, ease: "easeInOut" }}
-						className="absolute top-0 left:0 md:left-1/2 w-0.5 h-full bg-gradient-to-t gradient-color origin-top"
+						style={{ scaleY: smoothY }}
+						className="absolute top-0 left:0 md:left-1/2 w-[3px] -translate-x-1/2 h-full bg-gradient-to-t gradient-color origin-top"
 					/>
 				</div>
 			</div>

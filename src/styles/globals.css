@@ -26,51 +26,41 @@
 @utility gradient-color {
 	@apply from-[#ef9419] to-[#c94f1e];
 }
-
 @utility typo-gradient {
 	@apply text-transparent bg-clip-text bg-gradient-to-r gradient-color;
 }
 
-
-@utility logo-footer {
-	@apply font-heading font-[400px] text-7xl  lg:text-[150px]
-}
 @utility typo-h1 {
-	@apply font-heading text-[72px]/[120%] md:text-[86px]/[120%];
+	@apply font-heading leading-[120%] tracking-wide text-[52px] sm:text-[64px] md:text-[72px] lg:text-[86px];
 }
-
-@utility typo-hero-h1 {
-	@apply font-heading text-[3rem] text-start md:text-center
-}
-
 @utility typo-h2 {
-	@apply font-heading text-[42px]/[120%] md:text-[56px]/[120%];
+	@apply font-heading leading-[120%] tracking-wide text-[36px] sm:text-[42px] lg:text-[56px];
 }
 @utility typo-h3 {
-	@apply font-heading text-[32px]/[120%] md:text-[40px]/[120%];
+	@apply font-heading leading-[120%] tracking-wide text-[28px] sm:text-[32px] lg:text-[40px];
 }
 @utility typo-h4 {
-	@apply font-heading text-[24px]/[120%] md:text-[32px]/[120%];
+	@apply font-heading leading-[120%] text-[24px] md:text-[32px];
 }
 @utility typo-h5 {
-	@apply font-heading text-[20px]/[120%] md:text-[24px]/[120%];
+	@apply font-heading leading-[120%] text-[20px] md:text-[24px];
 }
 @utility typo-h6 {
-	@apply font-heading text-[18px]/[120%] md:text-[20px]/[120%];
+	@apply font-heading leading-[120%] text-[18px] md:text-[20px];
 }
 
 @utility typo-b-lg {
-	@apply font-body text-[18px] md:text-[20px] leading-snug;
+	@apply font-body leading-snug text-[18px] md:text-[20px];
 }
 @utility typo-b-md {
-	@apply font-body text-[16px] md:text-[18px] leading-snug;
+	@apply font-body leading-snug text-[16px] md:text-[18px];
 }
 @utility typo-b-rg {
-	@apply font-body text-[14px] md:text-[16px] leading-snug;
+	@apply font-body leading-snug text-[14px] md:text-[16px];
 }
 @utility typo-b-sm {
-	@apply font-body text-[12px] md:text-[14px] leading-snug;
+	@apply font-body leading-snug text-[12px] md:text-[14px];
 }
 @utility typo-b-tn {
-	@apply font-body text-[10px] md:text-[12px] leading-snug;
+	@apply font-body leading-snug text-[10px] md:text-[12px];
 }
