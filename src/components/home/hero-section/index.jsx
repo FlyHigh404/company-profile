@@ -1,5 +1,6 @@
 "use client";
 
+import HeorBgImage from "@/assets/images/hero-bg.png";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, useScroll, useSpring, useTransform } from "motion/react";
@@ -28,7 +29,7 @@ export default function HeroSection() {
 			<div ref={ref} className="relative w-11/12 lg:w-10/12">
 				<motion.div style={{ scale, y }}>
 					<Image
-						src="/images/hero2.png"
+						src={HeorBgImage}
 						alt="Hero Background"
 						width={1000}
 						height={600}
