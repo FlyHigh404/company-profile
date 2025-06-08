@@ -3,6 +3,7 @@ import HeroSection from "@/components/home/hero-section";
 import AboutSection from "@/components/home/about-section";
 import NavigationBar from "@/components/shared/NavigationBar";
 import ProductSection from "@/components/home/product-section";
+
 export default function Home() {
 	return (
 		<main>
