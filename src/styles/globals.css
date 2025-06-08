@@ -33,13 +33,16 @@
 
 
 @utility logo-footer {
-	font-family: Coolvetica;
-	font-size: 150px;
-	font-weight: 400;
+	@apply font-heading font-[400px] text-7xl  lg:text-[150px]
 }
 @utility typo-h1 {
 	@apply font-heading text-[72px]/[120%] md:text-[86px]/[120%];
 }
+
+@utility typo-hero-h1 {
+	@apply font-heading text-[3rem] text-start md:text-center
+}
+
 @utility typo-h2 {
 	@apply font-heading text-[42px]/[120%] md:text-[56px]/[120%];
 }
