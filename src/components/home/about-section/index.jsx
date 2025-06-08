@@ -84,7 +84,7 @@ export default function AboutSection() {
 	};
 
 	return (
-		<section className="w-full min-h-screen">
+		<section id="about" className="w-full min-h-screen">
 			{/* Main About */}
 			<div className="px-6 lg:px-16 py-16">
 				<div className="relative grid grid-cols-1 md:grid-cols-2">

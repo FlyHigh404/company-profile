@@ -9,9 +9,10 @@ export default function RootLayout({ children }) {
 	return (
 		<html lang="en">
 			<body>
-				{children}
+				<main className="pt-15">
+					{children}
+				</main>
 			</body>
 		</html>
-		
 	);
 }

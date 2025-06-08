@@ -21,23 +21,27 @@ import { Button } from "@/components/ui/button"
 const sections = [
   {
     title: "Beranda",
-    href: "#",
+    href: "#home",
   },
   {
     title: "Tentang Kami",
-    href: "#",
+    href: "#about",
   },
   {
     title: "Produk",
-    href: "#",
+    href: "#product",
+  },
+  {
+    title: "Testimoni",
+    href: "#testimonials",
   },
   {
     title: "Portofolio",
-    href: "#",
+    href: "#portfolio",
   },
   {
     title: "Kontak",
-    href: "#",
+    href: "#contact",
   },
 ]
 
@@ -72,14 +76,23 @@ export default function NavigationBar() {
       if (!currentSection && window.scrollY < 100) {
         currentSection = "#home";
       }
-      setActiveSection(currentSection);
+      if (currentSection !== activeSection) {
+        setActiveSection(currentSection);
+      }
     }
 
-    handleScroll();
+    let timeoutId;
+    const debouncedHandleScroll = () => {
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(handleScroll, 100);
+    };
 
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+    window.addEventListener("scroll", debouncedHandleScroll)
+    return () => {
+      window.removeEventListener("scroll", debouncedHandleScroll)
+      clearTimeout(timeoutId);
+    }
+  }, [activeSection])
 
   return (
     <div className="fixed top-0 left-0 right-0 z-50 bg-zinc-900">
@@ -101,9 +114,9 @@ export default function NavigationBar() {
             <NavigationMenuList className="flex items-center gap-4">
               <NavigationMenuItem>
                 <NavigationMenuTrigger
-                  className={navigationMenuTriggerStyle({ className: "font-body text-base bg-transparent text-gray-100 hover:bg-zinc-800 hover:text-gray-100 focus:bg-zinc-800 focus:text-gray-100 data-[active]:bg-zinc-800/80" })}
+                  className={`cursor-pointer gap-4 font-body text-base bg-transparent text-gray-100 hover:bg-zinc-800 hover:text-gray-100 focus:bg-zinc-800 focus:text-gray-100 data-[active]:bg-zinc-800/80" : ""}`}
                 >
-                  Beranda
+                  {sections.find(section => section.href === activeSection)?.title || "Beranda"}
                 </NavigationMenuTrigger>
                 <NavigationMenuContent
                   className="bg-zinc-800 border-zinc-700"
@@ -141,10 +154,10 @@ export default function NavigationBar() {
 
               <NavigationMenuItem>
                 <Button
-                  onClick={() => scrollToSection("#")}
+                  onClick={() => scrollToSection("#contact")}
                   className="font-body bg-gray-200 text-zinc-900 hover:bg-gray-300 rounded-full cursor-pointer"
                 >
-                  Hubungi Kami
+                  Chat Sekarang
                 </Button>
               </NavigationMenuItem>
             </NavigationMenuList>
@@ -156,12 +169,14 @@ export default function NavigationBar() {
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
           >
+            {/* Changed icon color to white */}
             {isMobileMenuOpen ? <X size={24} className="text-gray-100" /> : <Menu size={24} className="text-gray-100" />}
           </button>
         </div>
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
+          // Applied dark theme styles to mobile menu container
           <div className="md:hidden py-4 border-t border-zinc-700 bg-zinc-900">
             <nav className="flex flex-col space-y-2">
               {sections.map((section) => (
