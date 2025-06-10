@@ -6,7 +6,7 @@ import ProductSection from "@/components/home/product-section";
 
 export default function Home() {
 	return (
-		<main>
+		<main className="pt-16">
 			<NavigationBar />
 			<HeroSection />
 			<AboutSection />

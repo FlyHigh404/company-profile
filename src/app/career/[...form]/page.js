@@ -116,7 +116,8 @@ export default function CareerForm() {
 	return (
 		<>
 			<NavigationBar />
-			<main className="py-8 grid justify-items-center grid-cols-1 md:grid-cols-2">
+
+			<main className="pt-16 grid justify-items-center grid-cols-1 md:grid-cols-2">
 				{/* Detail */}
 				<section className="w-full max-w-xl p-4 sm:p-8 font-medium typo-b-rg text-neutral-600 flex flex-col gap-8">
 					<Link href="/career" className="size-fit p-1 rounded-full hover:bg-neutral-200 -translate-x-1/3">
@@ -329,6 +330,7 @@ export default function CareerForm() {
 					</form>
 				</section>
 			</main>
+
 			<Footer />
 
 			<Toaster position="bottom-right" />
