@@ -1,4 +1,4 @@
-import { successResponse } from "@/lib/responses";
+import { successResponse } from "@/lib/ApiHelper";
 
 /**
  * Health Check

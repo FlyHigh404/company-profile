@@ -4,7 +4,7 @@ import AboutSection from "@/components/home/about-section";
 import NavigationBar from "@/components/shared/NavigationBar";
 import ProductSection from "@/components/home/product-section";
 
-export default function Home() {
+export default function HomePage() {
 	return (
 		<main className="pt-16">
 			<NavigationBar />

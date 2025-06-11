@@ -29,7 +29,7 @@ const dataInit = {
 	career: null
 };
 const formSections = ["Informasi Pribadi", "Pengalaman & Portofolio", "Motivasi & Konfirmasi"];
-export default function CareerForm() {
+export default function CareerFormPage() {
 	const router = useRouter();
 	const params = useParams();
 	const paramsId = params.form?.[0] || "";

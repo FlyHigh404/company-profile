@@ -1,14 +1,15 @@
 import "@/styles/globals.css";
 
 export const metadata = {
-	title: "FlyHigh",
-	description: "FLyHigh Company Profile"
+	title: "FlyHigh | Solusi Digital Inovatif",
+	description:
+		"CV FlyHigh Sinergi Indonesia adalah perusahaan berbasis di Surabaya yang membangun ekosistem kendaraan listrik serta menyediakan layanan UI/UX, web app, mobile app, dan penulisan paper berbasis teknologi."
 };
 
-export default function RootLayout({ children }) {
+export default function HomeLayout({ children }) {
 	return (
-		<html lang="id" className="scroll-smooth">
-			<body>{children}</body>
+		<html lang="id">
+			<body className="scroll-smooth">{children}</body>
 		</html>
 	);
 }
