@@ -9,6 +9,8 @@ import Wizard1 from "@/assets/icons/Wizard1";
 import Wizard2 from "@/assets/icons/Wizard2";
 import Wizard3 from "@/assets/icons/Wizard3";
 import { InputField, TextAreaField, CheckBoxField } from "@/components/shared/InputField";
+import NavigationBar from "@/components/shared/NavigationBar";
+import Footer from "@/components/shared/Footer";
 import Link from "next/link";
 import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
@@ -98,6 +100,7 @@ export default function CareerForm() {
 
 	return (
 		<>
+			<NavigationBar />
 			<main className="py-8 grid justify-items-center grid-cols-1 md:grid-cols-2">
 				{/* Detail */}
 				<section className="w-full max-w-xl p-4 sm:p-8 font-medium typo-b-rg text-neutral-600 flex flex-col gap-8">
@@ -321,6 +324,7 @@ export default function CareerForm() {
 					</form>
 				</section>
 			</main>
+			<Footer />
 
 			<Toaster position="bottom-right" />
 		</>

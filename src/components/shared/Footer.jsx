@@ -1,71 +1,94 @@
-import Linkedin from '../../../public/svgs/Linkedin'
-import Twitter from '../../../public/svgs/Twitter'
-import Facebook from '../../../public/svgs/Facebook'
-import Instagram from '../../../public/svgs/Instagram'
-import ArrowToTop from '../../../public/svgs/ArrowToTop'
+"use client";
+
+import Linkedin from "@/assets/icons/Linkedin";
+import Twitter from "@/assets/icons/Twitter";
+import Facebook from "@/assets/icons/Facebook";
+import Instagram from "@/assets/icons/Instagram";
+import ArrowToTop from "@/assets/icons/ArrowToTop";
+import Link from "next/link";
+import { useRef } from "react";
+import { motion, useScroll, useSpring, useTransform } from "motion/react";
 
 export default function Footer() {
-  return (
-    <footer>
-      <div className="flex flex-wrap justify-between mx-5 md:mx-8 lg:mx-20 ">
-        <div className="flex flex-col">
-          <p className="logo-footer leading-[0.8] text-start  bg-gradient-to-r from-[#EF9419] to-[#C94F1E] text-transparent bg-clip-text pb-5 md:pb-10 lg:pb-12">FlyHigh</p>
-          <p className="text-lg font-[500] text-neutral-700 cursor-default pb-5 md:pb-10 lg:pb-12">© Copyright {new Date().getFullYear()} by Fly High</p>
-        </div>
+	const ref = useRef(null);
+	const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end end"] });
+	const smoothY = useSpring(scrollYProgress, {
+		damping: 25,
+		stiffness: 80
+	});
+	const y = useTransform(smoothY, [0, 1], ["100%", "0%"]);
 
-        <div className="text-lg text-neutral-700 ">
-          <div className="flex lg:justify-center md:gap-8 lg:gap-x-24">
-            <div className="w-2/5 md:w-1/6 lg:w-3/5 space-y-2 lg:space-y-5 ">
-              <p className="text-lg font-bold">Navigasi</p>
-              <p>
-                <a href="#">Tentang Kami</a>
-              </p>
-              <p>
-                <a href="#">Layanan</a>
-              </p>
-              <p>
-                <a href="#">Kontak</a>
-              </p>
-              <p>
-                <a href="">Makro</a>
-              </p>
-            </div>
+	return (
+		<footer ref={ref} className="overflow-clip">
+			<motion.div
+				style={{ y }}
+				className="relative w-full pb-24 pt-8 lg:pt-0 lg:pb-16 px-6 sm:px-10 md:px-16 lg:px-6 xl:px-12 border-t-2 border-neutral-200 bg-neutral-50 flex flex-col-reverse lg:flex-row justify-between gap-6"
+			>
+				<div className="-mt-4 sm:-mt-10 lg:mt-0 flex flex-col gap-2">
+					<span className="font-heading font-bold leading-[125%] text-[calc(1.5rem+20vw)] sm:text-[calc(2.5rem+20vw)] lg:text-[calc(2rem+12vw)] typo-gradient">
+						FlyHigh
+					</span>
+					<p className="font-medium typo-b-md text-neutral-600">© Copyright {new Date().getFullYear()} by Fly High</p>
+				</div>
 
-            <div className="w-2/5 md:w-3/6 lg:w-2/5 space-y-2 lg:space-y-5 cursor-default">
-              <p className="text-lg font-bold">
-                <a href="">Hubungi Kami</a>
-              </p>
-              <p>
-                <a href="mailto:flyhighsinergi.idn@gmail.com">flyhighsinergi.idn@gmail.com</a>
-              </p>
-              <p>+62 851-4116-8042</p>
-            </div>
+				<div className="lg:pt-10 flex flex-col sm:flex-row sm:justify-between gap-8 xl:gap-16">
+					<div className="typo-b-md text-neutral-700 flex flex-col gap-2">
+						<p className="font-bold typo-b-lg">Navigasi</p>
 
-            <div className="w-1/1 md:w-1/6 lg:w-1/5 ">
-              <div className='flex flex-row md:flex-col lg:flex-col items-center gap-5 md:gap-2 lg:gap-5 pt-5 md:pt-0 lg:pt-0'>
-                <a href="https://www.linkedin.com/company/cv-flyhigh-sinergi-indonesia">
-                  <Linkedin />
-                </a>
-                <a href="">
-                  <Facebook />
-                </a>
-                <a href="">
-                  <Twitter />
-                </a>
-                <a href="https://www.instagram.com/flyhighcorp_/">
-                  <Instagram />
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <a href="#hero">
-        <div className="flex flex-col justify-center items-center gap-2 py-10">
-          <ArrowToTop />
-          <p className="text-lg text-neutral-700 font-semibold ">Kembali Ke Atas</p>
-        </div>
-      </a>
-    </footer>
-  )
+						<Link className="underline underline-offset-2" href="#">
+							Tentang Kami
+						</Link>
+
+						<Link className="underline underline-offset-2" href="#">
+							Layanan
+						</Link>
+
+						<Link className="underline underline-offset-2" href="#">
+							Kontak
+						</Link>
+
+						<Link className="underline underline-offset-2" href="#">
+							Makro
+						</Link>
+					</div>
+
+					<div className="typo-b-md text-neutral-700 flex flex-col gap-2">
+						<p className="font-bold typo-b-lg">Hubungi Kami</p>
+
+						<Link className="underline underline-offset-2" href="mailto:flyhighsinergi.idn@gmail.com">
+							flyhighsinergi.idn@gmail.com
+						</Link>
+
+						<Link className="underline underline-offset-2" href="tel:+6285141168042">
+							+62 851-4116-8042
+						</Link>
+					</div>
+
+					<div className="flex sm:flex-col items-center gap-6">
+						<Link target="_blank" href="https://www.linkedin.com/company/cv-flyhigh-sinergi-indonesia">
+							<Linkedin />
+						</Link>
+						<Link target="_blank" href="https://www.instagram.com/flyhighcorp_/">
+							<Instagram />
+						</Link>
+						<Link target="_blank" href="">
+							<Facebook />
+						</Link>
+						<Link target="_blank" href="">
+							<Twitter />
+						</Link>
+					</div>
+				</div>
+
+				{/* Back To Top */}
+				<Link
+					href="#hero"
+					className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col justify-center items-center gap-2"
+				>
+					<ArrowToTop />
+					<p className="typo-b-md text-neutral-800">Kembali Ke Atas</p>
+				</Link>
+			</motion.div>
+		</footer>
+	);
 }
