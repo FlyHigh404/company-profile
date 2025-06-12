@@ -1,82 +1,114 @@
-import Linkedin from '@/assets/icons/Linkedin'
-import Facebook from '@/assets/icons/Facebook'
-import Twitter from '@/assets/icons/Twitter'
-import Instagram from '@/assets/icons/Instagram'
+"use client";
 
+import Linkedin from "@/assets/icons/Linkedin";
+import Facebook from "@/assets/icons/Facebook";
+import Twitter from "@/assets/icons/Twitter";
+import Instagram from "@/assets/icons/Instagram";
+import Link from "next/link";
+import { InputField, TextAreaField } from "@/components/shared/InputField";
+import { useState } from "react";
+
+const dataInit = {
+	name: "",
+	email: "",
+	message: ""
+};
 export default function ContactForm() {
-  return (
-    <section className="w-full px-[8%] py-[5%] pt-24">
-      <div className="grid grid-cols-1 lg:grid-cols-[55%_45%] items-center lg:items-start gap-12 w-full">
-        
-        {/* Konten Kiri */}
-        <div className="flex flex-col gap-6 text-center lg:text-left">
-          <h1 className="typo-h3 md:typo-h2 lg:typo-h1 bg-gradient-to-r from-[#EF9419] to-[#C94F1E] text-transparent bg-clip-text">
-            Siap Membantu Mewujudkan Solusi Terbaik
-          </h1>
-          <p className="text-lg font-semibold text-neutral-600">
-            Kami terbuka untuk berbagai bentuk kerja sama, konsultasi, maupun pertanyaan terkait layanan dan produk kami. Silakan hubungi tim kami melalui formulir atau informasi kontak di bawah ini.
-          </p>
+	const [data, setData] = useState(dataInit);
+	const handleInputChange = (e) => setData((p) => ({ ...p, [e.target.name]: e.target.value }));
+	const handleFormSubmit = (e) => {
+		e.preventDefault();
+		console.log(data);
+		setData(dataInit);
+	};
 
-          <div className="flex flex-col gap-6">
-            <div className="flex flex-col lg:flex-row gap-8 items-center lg:items-start justify-center lg:justify-start">
-              <div className="space-y-3 text-lg font-semibold text-neutral-600">
-                <p className="font-bold">Kontak Kami</p>
-                <p>flyhighsinergi.idn@gmail.com</p>
-                <p>08543657890</p>
-              </div>
+	return (
+		<section className="overflow-hidden w-full min-h-screen py-20 px-4 lg:px-16 grid grid-cols-1 lg:grid-cols-[55%_45%] items-center lg:items-start place-items-center gap-4">
+			{/* Konten Kiri */}
+			<div className="flex flex-col gap-10 text-center lg:text-left">
+				<h1 className="typo-h1 typo-gradient">Siap Membantu Mewujudkan Solusi Terbaik</h1>
 
-              <div className="space-y-3 text-lg font-semibold text-neutral-600">
-                <p className="font-bold">Ikuti Kami</p>
-                <div className="flex flex-row gap-4 items-center justify-center">
-                  <a href="#" className="hover:scale-130">
-                    <Linkedin />
-                  </a>
-                  <a href="#" className="hover:scale-130">
-                    <Facebook />
-                  </a>
-                  <a href="#" className="hover:scale-130">
-                    <Twitter />
-                  </a>
-                  <a href="https://www.instagram.com/flyhighcorp_/" className="hover:scale-130" target="_blank" rel="noopener noreferrer">
-                    <Instagram />
-                  </a>
-                </div>
-              </div>
-            </div>
+				<p className="typo-b-lg text-neutral-600">
+					Kami terbuka untuk berbagai bentuk kerja sama, konsultasi, maupun pertanyaan terkait layanan dan produk kami.
+					Silakan hubungi tim kami melalui formulir atau informasi kontak di bawah ini.
+				</p>
 
-            <div className="space-y-3 text-lg font-semibold text-neutral-600">
-              <p className="font-bold">Alamat</p>
-              <p>Jl. Medayu No. 123, Ngagel, Surabaya, Indonesia</p>
-              <a target="_blank" rel="noopener noreferrer" href="https://g.co/kgs/Ayppgeb" className="hover:underline">
-                <p>Buka di Peta</p>
-              </a>
-            </div>
-          </div>
-        </div>
+				<div className="flex flex-col gap-8">
+					<div className="flex flex-col lg:flex-row gap-8 items-center lg:items-start justify-center lg:justify-start">
+						<div className="space-y-2 font-medium typo-b-lg text-neutral-600">
+							<p className="font-bold">Kontak Kami</p>
 
-        {/* Formulir Kanan */}
-        <div className="flex justify-center lg:justify-end w-full">
-          <div className="p-10 bg-neutral-50 border-neutral-300 border-2 shadow-2xs rounded-2xl w-full max-w-md md:max-w-lg space-y-4">
-            <h3 className="typo-h3 font-bold text-black text-center lg:text-left">Kirim Pesan Cepat</h3>
-            <p className="text-lg font-semibold text-neutral-600 mb-12 text-center lg:text-left">
-              Hubungi kami untuk konsultasi layanan, kerja sama strategis, atau kebutuhan solusi digital khusus.
-            </p>
-            <form className="flex flex-col gap-6 w-full" action="#">
-              <input type="text" placeholder="Nama" className="w-full border-0 border-b border-gray-400 bg-transparent text-neutral-800 placeholder-neutral-500 focus:outline-none focus:border-orange-400 transition-all" />
-              <input type="email" placeholder="Email" className="w-full border-0 border-b border-gray-400 bg-transparent text-neutral-800 placeholder-neutral-500 focus:outline-none focus:border-orange-400 transition-all" />
-              <textarea
-                placeholder="Pesan"
-                rows={4}
-                className="w-full border-0 border-b border-gray-400 bg-transparent text-neutral-800 placeholder-neutral-500 focus:outline-none focus:border-orange-400 transition-all resize-none"
-              ></textarea>
-              <button type="submit" className="self-start px-6 py-2 text-white font-semibold rounded-full bg-gradient-to-r from-[#EF9419] to-[#C94F1E] hover:scale-105 transition duration-300">
-                Kirim
-              </button>
-            </form>
-          </div>
-        </div>
-        
-      </div>
-    </section>
-  )
+							<Link
+								className="block underline underline-offset-2"
+								target="_blank"
+								href="mailto:flyhighsinergi.idn@gmail.com"
+							>
+								flyhighsinergi.idn@gmail.com
+							</Link>
+							<Link className="block underline underline-offset-2" target="_blank" href="tel:+628543657890">
+								+628543657890
+							</Link>
+						</div>
+
+						<div className="space-y-2 font-medium typo-b-lg text-neutral-600">
+							<p className="font-bold">Ikuti Kami</p>
+
+							<div className="flex flex-row gap-4 items-center justify-center">
+								<Link target="_blank" href="https://linkedin.com/flyhigh" className="hover:scale-110">
+									<Linkedin />
+								</Link>
+								<Link target="_blank" href="https://facebook.com/flyhigh" className="hover:scale-110">
+									<Facebook />
+								</Link>
+								<Link target="_blank" href="https://x.com/flyhigh" className="hover:scale-110">
+									<Twitter />
+								</Link>
+								<Link href="https://www.instagram.com/flyhighcorp_/" target="_blank" className="hover:scale-110">
+									<Instagram />
+								</Link>
+							</div>
+						</div>
+					</div>
+
+					<div className="space-y-2 font-medium typo-b-lg text-neutral-600">
+						<p className="font-bold">Alamat</p>
+
+						<p>Jl. Medayu No. 123, Ngagel, Surabaya, Indonesia</p>
+						<Link
+							target="_blank"
+							rel="noopener noreferrer"
+							href="https://g.co/kgs/Ayppgeb"
+							className="typo-b-md underline underline-offset-2"
+						>
+							Buka di Peta
+						</Link>
+					</div>
+				</div>
+			</div>
+
+			{/* Formulir Kanan */}
+			<div className="w-full max-w-md md:max-w-lg mt-10 p-10 border-2 border-neutral-300 rounded-2xl shadow-2xs bg-neutral-50 flex flex-col gap-4">
+				<h3 className="typo-h3 font-bold text-neutral-700 text-center">Kirim Pesan Cepat</h3>
+
+				<p className="mb-10 typo-b-lg font-medium text-neutral-600 text-center lg:text-left">
+					Hubungi kami untuk konsultasi layanan, kerja sama strategis, atau kebutuhan solusi digital khusus.
+				</p>
+
+				<form onSubmit={handleFormSubmit} className="w-full flex flex-col gap-12" action="#">
+					<InputField label="Nama" type="text" name="name" value={data.name} onChange={handleInputChange} />
+
+					<InputField label="Email" type="email" name="email" value={data.email} onChange={handleInputChange} />
+
+					<TextAreaField rows="4" label="Pesan" name="message" value={data.message} onChange={handleInputChange} />
+
+					<button
+						type="submit"
+						className="self-start mt-4 px-12 py-3 font-bold typo-b-lg text-white rounded-full bg-gradient-to-r gradient-color hover:scale-105 transition duration-300"
+					>
+						Kirim
+					</button>
+				</form>
+			</div>
+		</section>
+	);
 }
