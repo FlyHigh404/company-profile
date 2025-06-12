@@ -7,7 +7,7 @@ import NavigationBar from "@/components/shared/NavigationBar";
 import Footer from "@/components/shared/Footer";
 export default function Career() {
 	return (
-		<main>
+		<main >
 			<NavigationBar />
 			<Hero />
 			<ListJob />
