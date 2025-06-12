@@ -40,7 +40,7 @@ export default function CareerSection() {
           </p>
 
           <div>
-            <a href="#career">
+            <a href="/career">
               <span className="text-lg font-semibold text-white px-10 py-3 inline-block rounded-full bg-gradient-to-r from-[#EF9419] to-[#C94F1E] transition duration-300 hover:scale-110">
                 Raih Peluangmu!
               </span>
