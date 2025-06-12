@@ -8,7 +8,7 @@ import CareerSection from "@/components/home/career-section";
 import ContactForm from "@/components/home/contact-form";
 export default function Home() {
 	return (
-		<main>
+		<main className="pt-16">
 			<NavigationBar />
 			<HeroSection />
 			<AboutSection />

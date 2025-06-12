@@ -1,0 +1,134 @@
+[
+	{
+		"id": "1",
+		"title": "Frontend Developer",
+		"level": "Magang",
+		"detail": {
+			"time": "Ditutup 24 November 2025",
+			"experience": "Pengalaman Minimal 1 tahun",
+			"salary": "2.000.000 - 3.000.000",
+			"tech": ["React", "Next.js", "HTML", "CSS"]
+		},
+		"description": "Kami mencari Frontend Developer magang yang memiliki semangat tinggi untuk bergabung dengan tim teknologi kami dalam mengembangkan antarmuka pengguna web yang modern dan responsif.",
+		"responsibilities": [
+			"Mengembangkan dan memelihara antarmuka pengguna menggunakan React dan Next.js",
+			"Berkolaborasi dengan desainer UI/UX untuk menerjemahkan desain menjadi kode yang efisien",
+			"Mengoptimalkan aplikasi untuk kecepatan dan performa di berbagai perangkat"
+		],
+		"qualification": [
+			"Memiliki pengalaman minimal 1 tahun dalam pengembangan frontend (bisa melalui proyek pribadi atau freelance)",
+			"Menguasai HTML, CSS, dan JavaScript dengan baik",
+			"Berpengalaman menggunakan React dan Next.js dalam proyek sebelumnya"
+		]
+	},
+	{
+		"id": "2",
+		"title": "Frontend Developer",
+		"level": "Pekerja Tetap",
+		"detail": {
+			"time": "Ditutup 24 November 2025",
+			"experience": "Pengalaman Minimal 1 tahun",
+			"salary": "2.000.000 - 3.000.000",
+			"tech": ["React", "Next.js", "HTML", "CSS"]
+		},
+		"description": "Kami mencari Frontend Developer tetap yang proaktif dan kreatif untuk memperkuat tim pengembangan produk digital kami.",
+		"responsibilities": [
+			"Mengimplementasikan fitur frontend dengan standar tinggi dalam hal kecepatan dan pengalaman pengguna",
+			"Melakukan review kode dan memberikan masukan teknis kepada tim",
+			"Bekerja erat dengan tim backend untuk integrasi API"
+		],
+		"qualification": [
+			"Pengalaman minimal 1 tahun di bidang frontend",
+			"Menguasai React dan Next.js",
+			"Familiar dengan prinsip desain responsif dan mobile-first"
+		]
+	},
+	{
+		"id": "3",
+		"title": "Backend Developer",
+		"level": "Pekerja Tetap",
+		"detail": {
+			"time": "Ditutup 15 Desember 2025",
+			"experience": "Pengalaman Minimal 2 tahun",
+			"salary": "4.000.000 - 6.000.000",
+			"tech": ["Node.js", "Express", "MongoDB", "Docker"]
+		},
+		"description": "Kami membuka lowongan Backend Developer untuk mengembangkan layanan backend yang scalable dan aman.",
+		"responsibilities": [
+			"Merancang dan mengembangkan REST API untuk berbagai kebutuhan aplikasi",
+			"Mengelola basis data MongoDB dan melakukan optimasi query",
+			"Mengimplementasikan keamanan backend dan autentikasi pengguna"
+		],
+		"qualification": [
+			"Pengalaman profesional minimal 2 tahun dengan Node.js",
+			"Terbiasa dengan Docker dan CI/CD pipeline",
+			"Menguasai konsep database NoSQL"
+		]
+	},
+	{
+		"id": "4",
+		"title": "Mobile Developer",
+		"level": "Magang",
+		"detail": {
+			"time": "Ditutup 30 November 2025",
+			"experience": "Fresh Graduate / Mahasiswa tingkat akhir",
+			"salary": "1.500.000 - 2.500.000",
+			"tech": ["Flutter", "Dart", "Firebase"]
+		},
+		"description": "Kami mencari Mobile Developer magang untuk membantu pengembangan aplikasi mobile menggunakan Flutter.",
+		"responsibilities": [
+			"Membantu dalam pengembangan fitur-fitur aplikasi mobile berbasis Flutter",
+			"Menulis kode yang efisien dan dapat digunakan kembali",
+			"Melakukan testing dan debugging aplikasi"
+		],
+		"qualification": [
+			"Paham dasar pemrograman Flutter dan Dart",
+			"Berpengalaman dalam menggunakan Firebase sebagai backend",
+			"Mampu bekerja dalam tim dan memiliki inisiatif tinggi"
+		]
+	},
+	{
+		"id": "5",
+		"title": "UI/UX Designer",
+		"level": "Pekerja Tetap",
+		"detail": {
+			"time": "Ditutup 10 Desember 2025",
+			"experience": "Pengalaman Minimal 1 tahun",
+			"salary": "3.500.000 - 5.000.000",
+			"tech": ["Figma", "Adobe XD", "Illustrator"]
+		},
+		"description": "Kami mencari UI/UX Designer untuk merancang pengalaman pengguna yang intuitif dan menarik di berbagai platform digital.",
+		"responsibilities": [
+			"Merancang wireframe dan prototipe aplikasi mobile dan web",
+			"Melakukan riset pengguna dan usability testing",
+			"Berkolaborasi dengan tim developer untuk implementasi desain"
+		],
+		"qualification": [
+			"Pengalaman minimal 1 tahun sebagai UI/UX Designer",
+			"Menguasai tools desain seperti Figma dan Adobe XD",
+			"Punya portofolio desain yang menunjukkan pemahaman mendalam tentang UX"
+		]
+	},
+	{
+		"id": "6",
+		"title": "QA Engineer",
+		"level": "Magang",
+		"detail": {
+			"time": "Ditutup 5 Desember 2025",
+			"experience": "Fresh Graduate / Mahasiswa tingkat akhir",
+			"salary": "1.800.000 - 2.800.000",
+			"tech": ["Selenium", "Jest", "Postman"]
+		},
+		"description": "Kami membuka posisi QA Engineer magang untuk membantu pengujian produk digital agar berjalan optimal sebelum dirilis.",
+		"responsibilities": [
+			"Melakukan pengujian fungsional dan regresi pada aplikasi",
+			"Membuat dan menjalankan skrip automated testing",
+			"Mencatat dan melaporkan bug ke tim developer"
+		],
+		"qualification": [
+			"Memahami proses software testing dan automation tools",
+			"Berpengalaman menggunakan Selenium atau Jest (nilai plus)",
+			"Teliti, komunikatif, dan mampu bekerja dalam tim"
+		]
+	}
+]

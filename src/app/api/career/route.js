@@ -9,14 +9,14 @@ import { successResponse, ApiError, catchHandler } from "@/lib/ApiHelper";
 
 export async function POST(req) {
 	try {
-		const rawBody = await req.json().catch(() => {
+		const body = await req.json().catch(() => {
 			throw new ApiError(400, "Invalid JSON payload");
 		});
 
 		const data = {
 			id: `crr-${uuidv4()}`,
 			createdAt: new Date().toISOString(),
-			...rawBody
+			...body
 		};
 
 		try {

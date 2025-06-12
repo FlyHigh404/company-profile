@@ -82,7 +82,7 @@ export default function Footer() {
 
 				{/* Back To Top */}
 				<Link
-					href="#hero"
+					href="#start"
 					className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col justify-center items-center gap-2"
 				>
 					<ArrowToTop />

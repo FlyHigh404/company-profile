@@ -12,34 +12,11 @@ import { InputField, TextAreaField, CheckBoxField } from "@/components/shared/In
 import NavigationBar from "@/components/shared/NavigationBar";
 import Footer from "@/components/shared/Footer";
 import Link from "next/link";
-import { useState } from "react";
+import { useParams, useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import toast, { Toaster } from "react-hot-toast";
 
-const career = {
-	title: "Frontend Developer",
-	level: "Magang",
-	detail: {
-		time: "Ditutup 24 November 2025",
-		experience: "Pengalaman Minimal 1 tahun",
-		salary: "2.000.000 - 3.000.000",
-		tech: ["React", "Next.js", "HTML", "CSS"]
-	},
-	description:
-		"Kami mencari Frontend Developer magang yang memiliki semangat tinggi untuk bergabung dengan tim teknologi kami dalam mengembangkan antarmuka pengguna web yang modern dan responsif.",
-	responsibilities: [
-		"Mengembangkan dan memelihara antarmuka pengguna menggunakan React dan Next.js",
-		"Berkolaborasi dengan desainer UI/UX untuk menerjemahkan desain menjadi kode yang efisien",
-		"Mengoptimalkan aplikasi untuk kecepatan dan performa di berbagai perangkat"
-	],
-	qualification: [
-		"Memiliki pengalaman minimal 1 tahun dalam pengembangan frontend (bisa melalui proyek pribadi atau freelance)",
-		"Menguasai HTML, CSS, dan JavaScript dengan baik",
-		"Berpengalaman menggunakan React dan Next.js dalam proyek sebelumnya"
-	]
-};
-
-const formSections = ["Informasi Pribadi", "Pengalaman & Portofolio", "Motivasi & Konfirmasi"];
 const dataInit = {
 	name: "",
 	email: "",
@@ -48,10 +25,46 @@ const dataInit = {
 	github: "",
 	cv: "",
 	portfolio: "",
-	reason: ""
+	reason: "",
+	career: null
 };
+const formSections = ["Informasi Pribadi", "Pengalaman & Portofolio", "Motivasi & Konfirmasi"];
+export default function CareerFormPage() {
+	const router = useRouter();
+	const params = useParams();
+	const paramsId = params.form?.[0] || "";
 
-export default function CareerForm() {
+	const [career, setCareer] = useState();
+	useEffect(() => {
+		const fetchCareerDetail = async () => {
+			const loadingToast = toast.loading("Memuat detail karir...");
+			try {
+				const res = await fetch("/career.json");
+				if (!res.ok) {
+					toast.dismiss(loadingToast);
+					return toast.error("Gagal memuat detail karir.");
+				}
+				const data = await res.json();
+
+				const careerData = data.find((item) => item.id === paramsId);
+				if (!careerData) {
+					toast.dismiss(loadingToast);
+					return router.push("/career");
+				}
+
+				setCareer(careerData);
+				toast.dismiss(loadingToast);
+			} catch (error) {
+				console.error("Error fetching career detail:", error);
+				toast.error("Terjadi kesalahan saat memuat detail karir.");
+				toast.dismiss(loadingToast);
+			}
+		};
+
+		fetchCareerDetail();
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, []);
+
 	const [activeSection, setActiveSection] = useState(0);
 	const [data, setData] = useState(dataInit);
 	const [confirm, setConfirm] = useState(false);
@@ -93,6 +106,8 @@ export default function CareerForm() {
 
 			toast.dismiss(loadingToast);
 		} catch (error) {
+			console.log("Error submitting career application:", error);
+
 			toast.error("Terjadi kesalahan saat mengirim lamaran. Silakan coba lagi.");
 			toast.dismiss(loadingToast);
 		}
@@ -101,7 +116,8 @@ export default function CareerForm() {
 	return (
 		<>
 			<NavigationBar />
-			<main className="py-8 grid justify-items-center grid-cols-1 md:grid-cols-2">
+
+			<main className="pt-16 grid justify-items-center grid-cols-1 md:grid-cols-2">
 				{/* Detail */}
 				<section className="w-full max-w-xl p-4 sm:p-8 font-medium typo-b-rg text-neutral-600 flex flex-col gap-8">
 					<Link href="/career" className="size-fit p-1 rounded-full hover:bg-neutral-200 -translate-x-1/3">
@@ -109,58 +125,48 @@ export default function CareerForm() {
 					</Link>
 
 					<div>
-						{career.title && <h1 className="typo-h2 text-neutral-800">{career.title}</h1>}
-						{career.level && <p className="typo-h4 text-neutral-800">{career.level}</p>}
+						<h1 className="typo-h2 text-neutral-800">{career?.title || ""}</h1>
+						<p className="typo-h4 text-neutral-800">{career?.level || ""}</p>
 					</div>
 
-					{career.detail && (
+					{career?.detail && (
 						<div className="text-neutral-800 flex flex-col gap-2">
 							<div className="flex items-center gap-2">
-								<DangerSvg /> <p>{career.detail.time}</p>
+								<DangerSvg /> <p>{career.detail?.time || ""}</p>
 							</div>
 							<div className="flex items-center gap-2">
-								<UserAiSvg /> <p>{career.detail.experience}</p>
+								<UserAiSvg /> <p>{career.detail?.experience || ""}</p>
 							</div>
 							<div className="flex items-center gap-2">
-								<MoneySvg /> <p>{career.detail.salary}</p>
+								<MoneySvg /> <p>{career.detail?.salary || ""}</p>
 							</div>
 							<div className="flex items-center gap-2">
-								<CpuSvg /> <p>{career.detail.tech.join(", ")}</p>
+								<CpuSvg /> <p>{career.detail?.tech.join(", ") ?? ""}</p>
 							</div>
 						</div>
 					)}
 
-					{career.description && (
-						<div className="flex flex-col gap-2">
-							<h2 className="typo-h5 text-neutral-700">Deskripsi</h2>
+					<div className="flex flex-col gap-2">
+						<h2 className="typo-h5 text-neutral-700">Deskripsi</h2>
 
-							<p>{career.description}</p>
-						</div>
-					)}
+						<p>{career?.description || ""}</p>
+					</div>
 
-					{career.responsibilities && (
-						<div className="flex flex-col gap-2">
-							<h2 className="typo-h5 text-neutral-700">Tanggung Jawab</h2>
+					<div className="flex flex-col gap-2">
+						<h2 className="typo-h5 text-neutral-700">Tanggung Jawab</h2>
 
-							<ul className="list-disc pl-5">
-								{career.responsibilities.map((item, i) => (
-									<li key={i}>{item}</li>
-								))}
-							</ul>
-						</div>
-					)}
+						<ul className="list-disc pl-5">
+							{career?.responsibilities && career.responsibilities.map((item, i) => <li key={i}>{item}</li>)}
+						</ul>
+					</div>
 
-					{career.qualification && (
-						<div className="flex flex-col gap-2">
-							<h2 className="typo-h5 text-neutral-700">Kualifikasi</h2>
+					<div className="flex flex-col gap-2">
+						<h2 className="typo-h5 text-neutral-700">Kualifikasi</h2>
 
-							<ul className="list-disc pl-5">
-								{career.qualification.map((item, i) => (
-									<li key={i}>{item}</li>
-								))}
-							</ul>
-						</div>
-					)}
+						<ul className="list-disc pl-5">
+							{career?.qualification && career.qualification.map((item, i) => <li key={i}>{item}</li>)}
+						</ul>
+					</div>
 				</section>
 
 				{/* Form */}
@@ -324,6 +330,7 @@ export default function CareerForm() {
 					</form>
 				</section>
 			</main>
+
 			<Footer />
 
 			<Toaster position="bottom-right" />
