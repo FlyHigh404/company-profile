@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function CareerSection() {
   const imageList = [
@@ -40,11 +41,11 @@ export default function CareerSection() {
           </p>
 
           <div>
-            <a href="/career">
+            <Link href="/career">
               <span className="text-lg font-semibold text-white px-10 py-3 inline-block rounded-full bg-gradient-to-r from-[#EF9419] to-[#C94F1E] transition duration-300 hover:scale-110">
                 Raih Peluangmu!
               </span>
-            </a>
+            </Link>
           </div>
         </div>
       </div>

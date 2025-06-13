@@ -8,7 +8,6 @@ export default function ContactForm() {
     <section className="w-full px-[8%] py-[5%] pt-24">
       <div className="grid grid-cols-1 lg:grid-cols-[55%_45%] items-center lg:items-start gap-12 w-full">
         
-        {/* Konten Kiri */}
         <div className="flex flex-col gap-6 text-center lg:text-left">
           <h1 className="typo-h3 md:typo-h2 lg:typo-h1 bg-gradient-to-r from-[#EF9419] to-[#C94F1E] text-transparent bg-clip-text">
             Siap Membantu Mewujudkan Solusi Terbaik
@@ -54,7 +53,6 @@ export default function ContactForm() {
           </div>
         </div>
 
-        {/* Formulir Kanan */}
         <div className="flex justify-center lg:justify-end w-full">
           <div className="p-10 bg-neutral-50 border-neutral-300 border-2 shadow-2xs rounded-2xl w-full max-w-md md:max-w-lg space-y-4">
             <h3 className="typo-h3 font-bold text-black text-center lg:text-left">Kirim Pesan Cepat</h3>
