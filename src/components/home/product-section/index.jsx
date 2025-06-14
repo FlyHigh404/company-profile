@@ -2,8 +2,8 @@
 
 import Image from "next/image";
 import { useRef, useEffect, useState } from "react";
+import ServiceSlider from "./ServiceSlider";
 
-// Shared hook for intersection observer
 const useIntersectionObserver = (threshold = 0.3) => {
     const sectionRef = useRef(null);
     const [inView, setInView] = useState(false);
@@ -20,7 +20,6 @@ const useIntersectionObserver = (threshold = 0.3) => {
     return { sectionRef, inView };
 };
 
-// Shared button component
 const ActionButton = ({ href, children }) => (
     <a 
         href={href} 
@@ -138,6 +137,25 @@ function BetulinSection() {
     );
 }
 
+function ServiceSection() {
+    return (
+        <section id="service" className="bg-neutral-50 py-20 md:py-24 lg:py-28">
+            <div className="flex flex-col items-center justify-center text-center max-w-4xl mx-auto px-6">
+                <h2 className="typo-h2 text-neutral-800">
+                    Jasa Digital
+                </h2>
+                <p className="typo-b-lg md:mt-6 mb-8 md:mb-10 text-neutral-600 max-w-3xl">
+                    Kami bantu bisnis Anda lepas landas dengan solusi UI/UX, website, aplikasi mobile, dan layanan teknologi lainnya yang cepat, tepat, dan profesional.
+                </p>
+                <ActionButton href="#">Dapatkan Solusi Anda</ActionButton>
+            </div>
+            <div>
+                <ServiceSlider />
+            </div>
+        </section>
+    );
+}
+
 export default function ProductSection() {
     return (
 	    <>
@@ -145,6 +163,7 @@ export default function ProductSection() {
             <ProductSectionHeading />
             <VoltwheelsSection />
             <BetulinSection />
+            <ServiceSection />
 	    </section>
         </>
     );
