@@ -30,7 +30,7 @@ export default function ContactForm() {
     setSuccess(false)
 
     try {
-      const res = await fetch('/api/contact', {
+      const res = await fetch('/api/message', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
@@ -38,7 +38,7 @@ export default function ContactForm() {
 
       const result = await res.json()
 
-      if (res.status === 200) {
+      if (res.status === 201) {
         setSuccess(true)
         toast.success('Pesan Anda telah terkirim.')
         setData(dataInit)

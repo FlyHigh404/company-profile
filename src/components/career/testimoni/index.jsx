@@ -20,7 +20,7 @@ const testimonials = [
     image: testiKarir3,
     name: 'Teri',
     role: 'Frontend Developer Intern',
-    text: 'Bagus.',
+    text: 'Monthly meeting dan kegiatan-kegiatan lain yang menyenangkan.',
   },
 ]
 
