@@ -41,7 +41,7 @@ export default function Testimoni() {
               <h5 className="typo-h5 font-bold text-neutral-800">
                 {item.name} - {item.role}
               </h5>
-              <p className="text-base font-semibold text-neutral-700">{item.text}</p>
+              <p className="typo-b-md  text-neutral-700">{item.text}</p>
             </div>
           ))}
         </div>

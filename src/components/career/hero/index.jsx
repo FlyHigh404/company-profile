@@ -9,7 +9,7 @@ export default function Hero() {
           <h1 className="typo-h2 lg:typo-h1 font-bold bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent leading-tight">
             Investasi Pada Pengembangan Talenta
           </h1>
-          <p className="text-base md:text-lg text-neutral-700 font-medium leading-relaxed">
+          <p className="typo-b-md md:typo-b-lg text-neutral-700  leading-relaxed">
             Sebagai bagian dari strategi jangka panjang, FlyHigh menjalankan program MAKRO (Magang Kreatif dan Progresif), sebuah inisiatif akselerasi talenta digital untuk membekali generasi muda dengan pengalaman nyata di industri
             teknologi. Program ini tidak hanya menciptakan pipeline SDM unggul, tetapi juga memperkuat fondasi inovasi internal perusahaan.
           </p>
