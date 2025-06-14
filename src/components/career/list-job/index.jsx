@@ -77,7 +77,7 @@ export default function ListJob() {
 							<p className="text-neutral-700 text-center font-semibold typo-b-sm">{job.level}</p>
 						</div>
 
-						<div className="pt-2 space-y-2 typo-b-sm">
+						<div className="pt-2 space-y-2 typo-b-sm text-neutral-700">
 							<div className="flex gap-2 items-start">
 								<Alert />
 								<p>{job.detail.time}</p>
