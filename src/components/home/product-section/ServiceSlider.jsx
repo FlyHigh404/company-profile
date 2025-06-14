@@ -43,6 +43,7 @@ export default function App() {
 
 const ServiceSlider = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [swiper, setSwiper] = useState(null);
 
   return (
     <div className="w-full py-8">
@@ -72,7 +73,10 @@ const ServiceSlider = () => {
         className="max-w-[95vw] lg:max-w-[85vw] xl:max-w-[80vw]"
         loop={true}
         onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
-        onSwiper={(swiper) => setActiveIndex(swiper.realIndex)}
+        onSwiper={(swiper) => {
+          setSwiper(swiper);
+          setActiveIndex(swiper.realIndex);
+        }}
       >
         {sliderData.map((item) => (
           <SwiperSlide key={item.title}>
@@ -104,9 +108,11 @@ const ServiceSlider = () => {
       </Swiper>
       <div className="flex justify-center gap-6 mt-12">
         {sliderData.map((_, idx) => (
-          <div
+          <button
             key={idx}
-            className={`h-2 w-8 rounded-full transition-colors duration-300 ${activeIndex === idx ? 'bg-neutral-500' : 'bg-neutral-300'}`}
+            onClick={() => swiper.slideToLoop(idx)}
+            className={`h-2 w-8 rounded-full transition-colors duration-300 cursor-pointer hover:bg-neutral-400 ${activeIndex === idx ? 'bg-neutral-500' : 'bg-neutral-300'}`}
+            aria-label={`Go to slide ${idx + 1}`}
           />
         ))}
       </div>
