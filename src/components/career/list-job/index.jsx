@@ -5,12 +5,13 @@ import { Alert, User, Gaji, Stack, Search, Dropdown } from "@/assets/icons/IconC
 import Link from "next/link";
 
 export default function ListJob() {
-	const [isOpen, setIsOpen] = useState(false);
-	const [selected, setSelected] = useState("Semua Tingkat");
 	const [jobs, setJobs] = useState([]);
-	const [filteredJobs, setFilteredJobs] = useState([]);
+	const [selected, setSelected] = useState("Semua Tingkat");
+	const [query, setQuery] = useState("");
 	const [positions, setPositions] = useState(["Semua Tingkat"]);
+	const [filteredJobs, setFilteredJobs] = useState([]);
 
+	// fetch career data
 	useEffect(() => {
 		const getData = async () => {
 			try {
@@ -25,59 +26,68 @@ export default function ListJob() {
 		getData();
 	}, []);
 
+	// get unique positions
+	useEffect(() => {
+		const uniquePositions = Array.from(new Set(jobs.map((job) => job.level)));
+		setPositions(["Semua Tingkat", ...uniquePositions]);
+	}, [jobs]);
+
+	// filter jobs
 	useEffect(() => {
 		if (selected === "Semua Tingkat") {
 			setFilteredJobs(jobs);
 		} else {
 			setFilteredJobs(jobs.filter((job) => job.level === selected));
 		}
-	}, [selected, jobs]);
+
+		if (query) {
+			setFilteredJobs((p) => p.filter((job) => job.title.toLowerCase().includes(query.toLowerCase())));
+		}
+	}, [query, selected, jobs]);
 
 	return (
 		<section className="px-6 sm:px-[8%] py-16 flex flex-col">
 			<div className="flex flex-col md:flex-row gap-4 md:gap-6 pb-10">
-				<div className="flex items-center border-b-2 border-neutral-800 w-full md:w-1/2">
-					<input className="w-full px-3 py-2 focus:outline-none typo-b-md md:typo-b-lg" placeholder="Cari Posisi" />
-					<Search />
+				<div className="flex items-center border-b-2 border-neutral-400 w-full md:w-1/2 typo-b-lg">
+					<input
+						onChange={(e) => setQuery(e.target.value)}
+						type="text"
+						placeholder="Cari Posisi"
+						className="w-full px-3 py-2 focus:outline-none typo-b-md md:typo-b-lg placeholder:text-neutral-500"
+					/>
+					<Search className="fill-neutral-500" />
 				</div>
 
-				<div className="relative w-full md:w-64">
-					<button
-						onClick={() => setIsOpen(!isOpen)}
-						className="w-full px-4 py-2 bg-white border border-gray-300 shadow-sm flex items-center justify-between focus:outline-none focus:ring-2 focus:ring-orange-500 rounded-full typo-b-sm md:typo-b-lg"
+				<div className="relative w-fit">
+					<select
+						value={selected}
+						onChange={(e) => setSelected(e.target.value)}
+						className="cursor-pointer w-full py-2 px-6 pe-11 border border-neutral-400 rounded-full bg-white focus:outline-none focus:ring-1 focus:ring-primary-neutral typo-b-rg text-neutral-800 appearance-none"
 					>
-						<span>{selected}</span>
-						<Dropdown />
-					</button>
-
-					{isOpen && (
-						<ul className="absolute z-10 w-full mt-2 bg-white border border-gray-300 rounded-md shadow-lg max-h-60 overflow-auto typo-b-sm">
-							{positions.map((position, index) => (
-								<li
-									key={index}
-									onClick={() => {
-										setSelected(position);
-										setIsOpen(false);
-									}}
-									className="px-4 py-2 hover:bg-orange-100 cursor-pointer"
-								>
+						{Array.isArray(positions) &&
+							positions.map((position, i) => (
+								<option key={i} value={position} className="typo-b-rg text-neutral-800">
 									{position}
-								</li>
+								</option>
 							))}
-						</ul>
-					)}
+					</select>
+
+					<div className="absolute inset-y-0 right-4 flex items-center">
+						<Dropdown />
+					</div>
 				</div>
 			</div>
 
 			<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-				{filteredJobs.map((job) => (
-					<div key={job.id} className="bg-white border-2 rounded-xl p-5 text-neutral-400 font-semibold shadow-sm">
-						<h1 className="typo-b-lg text-neutral-700 pb-3 font-bold">{job.title}</h1>
-						<div className="bg-neutral-300 w-fit rounded-2xl px-3 py-1 mb-4">
-							<p className="text-neutral-700 text-center font-semibold typo-b-sm">{job.level}</p>
+				{filteredJobs.map((job, i) => (
+					<div key={i} className="p-6 border border-neutral-400 rounded-xl bg-white">
+						<h1 className="font-bold tracking-tight typo-b-lg text-neutral-800">{job.title}</h1>
+
+						<div className="mt-3 px-4 py-1 bg-neutral-200 w-fit rounded-full">
+							<p className="font-medium tracking-wider typo-b-sm text-neutral-800">{job.level}</p>
 						</div>
 
-						<div className="pt-2 space-y-2 typo-b-sm text-neutral-700">
+						<div className="mt-8 space-y-2 font-medium typo-b-sm text-neutral-600">
 							<div className="flex gap-2 items-start">
 								<Alert />
 								<p>{job.detail.time}</p>
@@ -96,10 +106,10 @@ export default function ListJob() {
 							</div>
 						</div>
 
-						<div className="flex justify-end">
+						<div className="mt-10 flex justify-end">
 							<Link
 								href={`/career/${job.id}`}
-								className="typo-b-sm font-semibold text-white px-6 py-2 inline-block rounded-full bg-gradient-to-r from-[#EF9419] to-[#C94F1E] transition duration-300 hover:scale-105 mt-4"
+								className="block px-6 py-2 rounded-full bg-gradient-to-r gradient-color font-medium typo-b-sm text-neutral-50 transition duration-300 hover:scale-105"
 							>
 								Lihat lowongan
 							</Link>

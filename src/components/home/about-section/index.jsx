@@ -102,7 +102,14 @@ export default function AboutSection() {
 						<h2 className="typo-h1 typo-gradient">Tentang Flyhigh</h2>
 					</div>
 					<div className="flex px-6 py-12 border-t-2 sm:border-t-0 border-s-2 border-neutral-300 items-center justify-center">
-						<Image src={LogoImage} alt="Flyhigh Logo" width={160} height={160} className="w-auto h-40 object-cover" />
+						<Image
+							src={LogoImage}
+							alt="Flyhigh Logo"
+							width={800}
+							height={600}
+							priority
+							className="w-auto h-40 object-cover"
+						/>
 					</div>
 
 					{data.about.map((text, i) => {
