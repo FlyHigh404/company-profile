@@ -51,10 +51,10 @@ function VoltwheelsSection() {
                     <h1 className="typo-h2 text-neutral-700 flex items-center gap-3 justify-start">
                         Voltwheels
                     </h1>
-                    <p className="typo-b-lg mt-4 md:mt-6 mb-6 md:mb-8 text-neutral-600">
+                    <p className="typo-b-md lg:typo-b-lg mt-4 md:mt-6 mb-6 md:mb-8 text-neutral-600">
                         Platform super-app kendaraan listrik yang menyediakan solusi mobilitas terintegrasi berbasis EV, mencakup layanan ride-hailing, penyewaan kendaraan listrik, pengiriman barang dan makanan berbasis EV, serta pelacakan kualitas udara dan pengisian daya.
                     </p>
-                    <p className="typo-b-lg mb-8 text-neutral-600">
+                    <p className="typo-b-md lg:typo-b-lg mb-8 text-neutral-600">
                         Voltwheels dirancang untuk mendukung mobilitas hijau sekaligus membuka peluang besar dalam pasar mobilitas berkelanjutan yang tengah tumbuh pesat.
                     </p>
                     <ActionButton href="https://voltwheelsindonesia.com/">Jelajahi Voltwheels</ActionButton>
@@ -137,10 +137,10 @@ function BetulinSection() {
 		</div>
 		<div className="flex-1 min-w-[280px] md:min-w-[320px] max-w-full lg:max-w-[460px] text-left">
 		    <h1 className="typo-h2 text-neutral-700">Betulin</h1>
-		    <p className="typo-b-lg mt-4 md:mt-6 mb-6 md:mb-8 text-neutral-600">
+		    <p className="typo-b-md lg:typo-b-lg mt-4 md:mt-6 mb-6 md:mb-8 text-neutral-600">
 			Platform digital layanan purna jual untuk kendaraan listrik roda dua, menghubungkan pengguna dengan bengkel, mekanik, marketplace suku cadang, pengisian daya, pengingat perawatan, konsultasi, dan fitur konsultasi berbasis teknologi.
 		    </p>
-		    <p className="typo-b-lg mb-6 md:mb-8 text-neutral-600">
+		    <p className="typo-b-md lg:typo-b-lg mb-6 md:mb-8 text-neutral-600">
 			Betulin hadir sebagai fondasi infrastruktur teknis kendaraan listrik, dengan model bisnis multi-sided yang scalable dan berpotensi menjadi standar baru dalam layanan purna jual kendaraan listrik di Indonesia.
 		    </p>
 		    <ActionButton href="#">Jelajahi Betulin</ActionButton>
@@ -154,10 +154,10 @@ function ServiceSection() {
     return (
         <section id="service" className="bg-neutral-50 py-10 md:py-14 lg:py-18">
             <div className="flex flex-col items-center justify-center text-center max-w-4xl mx-auto px-6">
-                <h2 className="typo-h2 text-neutral-800">
+                <h2 className="typo-h2 text-neutral-800 mb-4">
                     Jasa Digital
                 </h2>
-                <p className="typo-b-lg md:mt-6 mb-8 md:mb-10 text-neutral-600 max-w-3xl">
+                <p className="typo-b-md lg:typo-b-lg md:mt-6 mb-8 md:mb-10 text-neutral-600 max-w-3xl">
                     Kami bantu bisnis Anda lepas landas dengan solusi UI/UX, website, aplikasi mobile, dan layanan teknologi lainnya yang cepat, tepat, dan profesional.
                 </p>
                 <ActionButton href="#">Dapatkan Solusi Anda</ActionButton>
