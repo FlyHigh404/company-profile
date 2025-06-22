@@ -33,6 +33,7 @@ export default function HeroSection() {
 						alt="Hero Background"
 						width={1000}
 						height={600}
+						priority
 						className="w-full object-center object-cover aspect-[10/10] sm:aspect-[10/8] lg:aspect-[10/5]"
 					/>
 				</motion.div>

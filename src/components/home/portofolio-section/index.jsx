@@ -171,7 +171,7 @@ export default function PortfolioSection() {
 					onBreakpoint={(swiper) => {
 						setSlidesPerView(swiper.params.slidesPerView);
 					}}
-					className="!px-[4vw]"
+					className="!px-[4vw] my-6"
 				>
 					{filteredData.map((item, i) => (
 						<SwiperSlide key={i} className="!h-[40rem] py-4">

@@ -122,7 +122,7 @@ export default function AboutSection() {
 										initial="close"
 										whileInView={"open"}
 										viewport={{ once: true, amount: "all" }}
-										className="font-semibold typo-b-lg text-neutral-600"
+										className="font-medium typo-b-lg text-neutral-600"
 									>
 										{text}
 									</motion.p>
@@ -136,7 +136,7 @@ export default function AboutSection() {
 										initial="close"
 										whileInView={"open"}
 										viewport={{ once: true, amount: "all" }}
-										className="font-semibold typo-b-lg text-neutral-600"
+										className="font-medium typo-b-lg text-neutral-600"
 									>
 										{text}
 									</motion.p>
@@ -182,7 +182,7 @@ export default function AboutSection() {
 						{data.vision.map((text, i) => (
 							<motion.div variants={expandItemVars} className="flex gap-4" key={i}>
 								<div className="mt-3 size-2 aspect-square rounded-full bg-neutral-500" />
-								<p key={i} className="font-semibold text-lg md:text-xl text-neutral-600">
+								<p key={i} className="font-body font-medium text-lg md:text-xl text-neutral-600">
 									{text}
 								</p>
 							</motion.div>
@@ -210,7 +210,7 @@ export default function AboutSection() {
 						{data.mission.map((text, i) => (
 							<motion.div variants={expandItemVars} className="flex gap-4" key={i}>
 								<div className="mt-3 size-2 aspect-square rounded-full bg-neutral-500" />
-								<p key={i} className="font-semibold text-lg md:text-xl text-neutral-600">
+								<p key={i} className="font-body font-medium text-lg md:text-xl text-neutral-600">
 									{text}
 								</p>
 							</motion.div>
@@ -238,7 +238,7 @@ export default function AboutSection() {
 						{data.mission.map((text, i) => (
 							<motion.div variants={expandItemVars} className="flex gap-4" key={i}>
 								<div className="mt-3 size-2 aspect-square rounded-full bg-neutral-500" />
-								<p key={i} className="font-semibold text-lg md:text-xl text-neutral-600">
+								<p key={i} className="font-body font-medium text-lg md:text-xl text-neutral-600">
 									{text}
 								</p>
 							</motion.div>

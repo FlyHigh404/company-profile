@@ -8,6 +8,7 @@ import ArrowLeft2 from "@/assets/icons/ArrowLeft2";
 import Wizard1 from "@/assets/icons/Wizard1";
 import Wizard2 from "@/assets/icons/Wizard2";
 import Wizard3 from "@/assets/icons/Wizard3";
+import Loading from "@/assets/icons/Loading";
 import { InputField, TextAreaField, CheckBoxField } from "@/components/shared/InputField";
 import NavigationBar from "@/components/shared/NavigationBar";
 import Footer from "@/components/shared/Footer";
@@ -67,6 +68,7 @@ export default function CareerFormPage() {
 
 	const [activeSection, setActiveSection] = useState(0);
 	const [data, setData] = useState(dataInit);
+	const [loading, setLoading] = useState(false);
 	const [confirm, setConfirm] = useState(false);
 	const handleInputChange = (e) => setData((p) => ({ ...p, [e.target.name]: e.target.value }));
 	const handleBackClick = () => {
@@ -82,6 +84,7 @@ export default function CareerFormPage() {
 	};
 	const handleSubmit = async (e) => {
 		e.preventDefault();
+		setLoading(true);
 		const loadingToast = toast.loading("Mengirim lamaran...");
 
 		try {
@@ -97,18 +100,16 @@ export default function CareerFormPage() {
 			if (res.status.toString().startsWith("5")) {
 				toast.error("Terjadi kesalahan pada server, silakan coba lagi nanti.");
 			}
-			if (res.status.toString().startsWith("2")) {
-				setData(dataInit);
-				setConfirm(false);
-				setActiveSection(0);
-				toast.success("Lamaran Anda telah berhasil dikirim! Terima kasih atas minat Anda.");
-			}
 
-			toast.dismiss(loadingToast);
+			setData(dataInit);
+			setConfirm(false);
+			setActiveSection(0);
+			toast.success("Lamaran Anda telah berhasil dikirim! Terima kasih atas minat Anda.");
 		} catch (error) {
 			console.log("Error submitting career application:", error);
-
 			toast.error("Terjadi kesalahan saat mengirim lamaran. Silakan coba lagi.");
+		} finally {
+			setLoading(false);
 			toast.dismiss(loadingToast);
 		}
 	};
@@ -117,7 +118,7 @@ export default function CareerFormPage() {
 		<>
 			<NavigationBar />
 
-			<main className="pt-16 grid justify-items-center grid-cols-1 md:grid-cols-2">
+			<main className="pt-20 grid justify-items-center grid-cols-1 md:grid-cols-2">
 				{/* Detail */}
 				<section className="w-full max-w-xl p-4 sm:p-8 font-medium typo-b-rg text-neutral-600 flex flex-col gap-8">
 					<Link href="/career" className="size-fit p-1 rounded-full hover:bg-neutral-200 -translate-x-1/3">
@@ -321,11 +322,21 @@ export default function CareerFormPage() {
 							disabled={
 								(activeSection === 0 && (!data.name || !data.email || !data.phone)) ||
 								(activeSection === 1 && (!data.linkedin || !data.github || !data.cv || !data.portfolio)) ||
-								(activeSection === 2 && (!data.reason || !confirm))
+								(activeSection === 2 && (!data.reason || !confirm)) ||
+								loading
 							}
-							className="cursor-pointer w-11/12 p-4 rounded-full bg-gradient-to-r gradient-color font-semibold tracking-wide typo-b-lg text-neutral-50 disabled:opacity-50 disabled:cursor-default"
+							className="flex items-center justify-center gap-2 self-start mt-4 px-12 py-3 font-bold typo-b-lg text-white rounded-full bg-gradient-to-r gradient-color hover:scale-105 transition duration-300 disabled:opacity-70"
 						>
-							{activeSection === formSections.length - 1 ? "Kirim Lamaran" : "Langkah Berikutnya"}
+							{loading ? (
+								<>
+									<Loading />
+									Mengirim...
+								</>
+							) : activeSection === formSections.length - 1 ? (
+								"Kirim Lamaran"
+							) : (
+								"Langkah Berikutnya"
+							)}
 						</button>
 					</form>
 				</section>
@@ -333,7 +344,7 @@ export default function CareerFormPage() {
 
 			<Footer />
 
-			<Toaster position="bottom-right" />
+			<Toaster position="top-center" />
 		</>
 	);
 }
