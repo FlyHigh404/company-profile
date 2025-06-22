@@ -3,15 +3,18 @@
 import Image from "next/image";
 import { useState } from "react";
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { FreeMode, Pagination } from 'swiper/modules';
+import { Pagination, FreeMode } from 'swiper/modules';
 import PortfolioDetailModal from "./PortfolioDetailModal";
 
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/free-mode';
-import ketika from "@/assets/images/ketika.png";
-import vokemons from "@/assets/images/vokemons.png";
-import astra from "@/assets/images/astra.png";
+import ketika from "@/assets/images/portofolio-ketika.png";
+import vokemons from "@/assets/images/portofolio-vokemons.png";
+import astra from "@/assets/images/portofolio-astra.png";
+import routerush from "@/assets/images/portofolio-routerush.png";
+import voltwheels from "@/assets/images/portofolio-voltwheels.png";
+import betulin from "@/assets/images/portofolio-betulin.png";
 
 const portfolioData = [
     {
@@ -30,23 +33,50 @@ const portfolioData = [
         longDescription: "Vokemons GO adalah gim berbasis web yang menggabungkan teknologi AR untuk pengalaman bermain yang imersif. Pemain dapat menjelajahi dunia virtual dan berinteraksi dengan karakter Vokemons.",
         portfolioImage: vokemons,
         detailImage: vokemons,
-        technologies: ["Figma", "Flutter"],
+        technologies: ["Figma", "React", "Tailwind", "PostgreSQL"],
     },
     {
-        category: "UI/UX",
+        category: "Mobile",
         title: "Astra",
         description: "Education App untuk mempelejari kesenian daerah menggunakan Augmented Reality (AR).",
         longDescription: "Astra adalah aplikasi edukasi yang memanfaatkan AR untuk memperkenalkan kesenian daerah kepada generasi muda. Dengan desain UI/UX yang interaktif, belajar menjadi lebih menyenangkan.",
         portfolioImage: astra,
         detailImage: astra,
-        technologies: ["Figma"],
+        technologies: ["Figma", "Dart", "Flutter", "Firebase"],
+    },
+    {
+        category: "Mobile",
+        title: "Routerush",
+        description: "AI-Powered Route Optimization untuk solusi efisiensi logistik.",
+        longDescription: "Jenis AI-Powered Route Optimization untuk solusi efisiensi logistik. Route Rush adalah aplikasi berbasis Android yang mengoptimalkan rute perjalanan menggunakan model machine learning CNN. Route Rush dirancang untuk mengatasi tantangan dalam sektor logistik, membantu perusahaan dan individu merencanakan jalur pengiriman yang lebih cepat, hemat biaya, dan efisien.",
+        portfolioImage: routerush,
+        detailImage: routerush,
+        technologies: ["Figma", "Kotlin", "TensorFlow"],
+    },
+    {
+        category: "Mobile",
+        title: "Voltwheels",
+        description: "Super App untuk solusi lifestyle menggunakan 100% Kendaraan Listrik.",
+        longDescription: "Jenis Super App untuk solusi lifestyle menggunakan 100% Kendaraan Listrik. Voltwheels adalah solusi untuk mengurangi jejak karbon yang telah mencemari udara di banyak kota besar. Voltwheels dirancang untuk memenuhi kebutuhan pengguna namun tetap memperhatikan aspek keberlanjutan lingkungan dan juga kesehatan..",
+        portfolioImage: voltwheels,
+        detailImage: voltwheels,
+        technologies: ["Figma", "Dart", "Flutter", "Firebase"],
+    },
+    {
+        category: "Mobile",
+        title: "Betulin",
+        description: "Multi-sided Platform untuk solusi layanan purna jual sepeda dan motor listrik.",
+        longDescription: "Jenis Multi-sided Platform untuk solusi layanan purna jual sepeda dan motor listrik. BETULIN adalah aplikasi yang memfasilitasi purna jual kendaraan listrik sebagai bagian dari ekosistem kendaraan listrik di Indonesia dengan komitmen untuk mendukung keberlanjutan, efisiensi, dan kemudahan bagi pengguna kendaraan listrik.",
+        portfolioImage: betulin,
+        detailImage: betulin,
+        technologies: ["Figma", "Dart", "Flutter", "Firebase"],
     },
 ];
 
 const PortfolioCard = ({ item, onDetail }) => (
     <div 
         onClick={() => onDetail(item)}
-        className="bg-white rounded-2xl shadow-md overflow-hidden flex flex-col h-full transition-all duration-300 hover:shadow-lg hover:scale-[1.03] cursor-pointer group"
+        className="bg-white rounded-2xl shadow-md flex flex-col h-full transition-all duration-300 hover:shadow-lg hover:scale-[1.03] cursor-pointer group"
     >
         <div className="p-6">
             <div className="relative w-full h-68 rounded-xl overflow-hidden">
@@ -55,6 +85,7 @@ const PortfolioCard = ({ item, onDetail }) => (
                     alt={item.title}
                     layout="fill"
                     objectFit="cover"
+                    objectPosition="top"
                 />
             </div>
         </div>
@@ -72,7 +103,7 @@ const PortfolioCard = ({ item, onDetail }) => (
 const FilterButton = ({ category, activeCategory, setCategory }) => (
     <button
         onClick={() => setCategory(category)}
-        className={`px-6 py-2.5 rounded-full typo-b-md transition-colors duration-200 cursor-pointer border-neutral-400 border-1
+        className={`px-3 md:px-6 py-1.5 md:py-2.5 rounded-full typo-b-sm md:typo-b-md transition-colors duration-200 cursor-pointer border-neutral-300 border-1
             ${activeCategory === category
                 ? 'bg-gradient-to-r from-[#EF9419] to-[#C94F1E] text-white'
                 : 'hover:bg-neutral-100'
@@ -86,10 +117,16 @@ export default function PortfolioSection() {
     const [activeCategory, setActiveCategory] = useState("Semua");
     const [modalOpen, setModalOpen] = useState(false);
     const [selectedItem, setSelectedItem] = useState(null);
+    const [activeIndex, setActiveIndex] = useState(0);
+    const [swiper, setSwiper] = useState(null);
+    const [slidesPerView, setSlidesPerView] = useState(1);
 
     const filteredData = activeCategory === "Semua"
         ? portfolioData
         : portfolioData.filter(item => item.category === activeCategory);
+
+    // Calculate how many pagination dots should be shown
+    const navigableSlides = Math.max(1, filteredData.length - slidesPerView + 1);
 
     const handleDetail = (item) => {
         setSelectedItem(item);
@@ -108,11 +145,11 @@ export default function PortfolioSection() {
     return (
         <section id="portfolio">
         <div className="flex flex-col items-center justify-center text-center">
-                <h1 className="typo-h3 md:typo-h2 lg:typo-h1  leading-none bg-gradient-to-r from-[#EF9419] to-[#C94F1E] text-transparent bg-clip-text mt-10 py-5 md:py-6 lg:py-8 ">Portofolio</h1>
+                <h1 className="mb-10 typo-h1 leading-none bg-gradient-to-r from-[#EF9419] to-[#C94F1E] text-transparent bg-clip-text mt-8 py-5 md:py-6 lg:py-8 ">Portofolio</h1>
         </div>
-            <div className="max-w-[1600px] mx-auto px-6 md:px-16 mb-10">
-                <div className="flex flex-col items-start text-center mb-18">
-                    <div className="flex flex-wrap justify-start gap-4 mt-8">
+            <div className="max-w-[1600px] mx-auto px-6 md:px-16">
+                <div className="flex flex-col items-start text-center">
+                    <div className="flex flex-wrap justify-start gap-4">
                         <FilterButton category="Semua" activeCategory={activeCategory} setCategory={setActiveCategory} />
                         <FilterButton category="Mobile" activeCategory={activeCategory} setCategory={setActiveCategory} />
                         <FilterButton category="Website" activeCategory={activeCategory} setCategory={setActiveCategory} />
@@ -126,18 +163,47 @@ export default function PortfolioSection() {
                         700: { slidesPerView: 2, spaceBetween: 24 },
                         1024: { slidesPerView: 3, spaceBetween: 32 },
                     }}
+                    modules={[Pagination, FreeMode]}
+                    loop={false}
                     freeMode={true}
-                    modules={[FreeMode, Pagination]}
-                    className="!pb-12"
+                    onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
+                    onSwiper={(swiper) => {
+                        setSwiper(swiper);
+                        setActiveIndex(swiper.realIndex);
+                        setSlidesPerView(swiper.params.slidesPerView);
+                    }}
+                    onBreakpoint={(swiper) => {
+                        setSlidesPerView(swiper.params.slidesPerView);
+                    }}
+                    style={{
+                        paddingTop: '3rem',
+                        paddingBottom: '3rem',
+                        marginLeft: '-15rem',
+                        marginRight: '-15rem',
+                        paddingLeft: '15rem',
+                        paddingRight: '15rem'
+                    }}
+                    className= "md:mx-[-4rem] md:px-16 lg:mx-[-4rem] lg:px-16"
                 >
                     {filteredData.map((item) => (
-                        <SwiperSlide key={item.title} className="h-auto">
-                           <div className="h-full">
+                        <SwiperSlide key={item.title} className="flex !h-[36rem]">
+                           <div className="h-full w-full">
                                 <PortfolioCard item={item} onDetail={handleDetail} />
                            </div>
                         </SwiperSlide>
                     ))}
                 </Swiper>
+                
+                <div className="flex justify-center gap-6 lg:mt-6 mb-10">
+                    {Array.from({ length: navigableSlides }, (_, idx) => (
+                        <button
+                            key={idx}
+                            onClick={() => swiper.slideTo(idx)}
+                            className={`h-1.5 md:h-2 w-6 md:w-8 rounded-full transition-colors duration-300 cursor-pointer hover:bg-neutral-400 ${activeIndex === idx ? 'bg-neutral-500' : 'bg-neutral-300'}`}
+                            aria-label={`Go to slide ${idx + 1}`}
+                        />
+                    ))}
+                </div>
             </div>
             <PortfolioDetailModal open={modalOpen} onClose={handleCloseModal} data={selectedItem} />
         </section>

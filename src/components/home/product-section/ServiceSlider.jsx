@@ -111,7 +111,7 @@ const ServiceSlider = () => {
           <button
             key={idx}
             onClick={() => swiper.slideToLoop(idx)}
-            className={`h-2 w-8 rounded-full transition-colors duration-300 cursor-pointer hover:bg-neutral-400 ${activeIndex === idx ? 'bg-neutral-500' : 'bg-neutral-300'}`}
+            className={`h-1.5 md:h-2 w-6 md:w-8 rounded-full transition-colors duration-300 cursor-pointer hover:bg-neutral-400 ${activeIndex === idx ? 'bg-neutral-500' : 'bg-neutral-300'}`}
             aria-label={`Go to slide ${idx + 1}`}
           />
         ))}
