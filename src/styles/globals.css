@@ -31,13 +31,13 @@
 }
 
 @utility typo-h1 {
-	@apply font-heading leading-[120%] tracking-wide text-[52px] sm:text-[64px] md:text-[72px] lg:text-[86px];
+	@apply font-heading leading-[120%] tracking-wide text-[40px] sm:text-[52px] md:text-[68px] lg:text-[86px];
 }
 @utility typo-h2 {
-	@apply font-heading leading-[120%] tracking-wide text-[36px] sm:text-[42px] lg:text-[56px];
+	@apply font-heading leading-[120%] tracking-wide text-[32px] sm:text-[44px] lg:text-[52px];
 }
 @utility typo-h3 {
-	@apply font-heading leading-[120%] tracking-wide text-[28px] sm:text-[32px] lg:text-[40px];
+	@apply font-heading leading-[120%] tracking-wide text-[28px] sm:text-[32px] lg:text-[38px];
 }
 @utility typo-h4 {
 	@apply font-heading leading-[120%] text-[24px] md:text-[32px];
