@@ -9,6 +9,7 @@ import Wizard1 from "@/assets/icons/Wizard1";
 import Wizard2 from "@/assets/icons/Wizard2";
 import Wizard3 from "@/assets/icons/Wizard3";
 import Loading from "@/assets/icons/Loading";
+import { Button } from "@/components/shared/Button";
 import { InputField, TextAreaField, CheckBoxField } from "@/components/shared/InputField";
 import NavigationBar from "@/components/shared/NavigationBar";
 import Footer from "@/components/shared/Footer";
@@ -316,7 +317,7 @@ export default function CareerFormPage() {
 							)}
 						</AnimatePresence>
 
-						<button
+						<Button
 							type="submit"
 							onClick={handleButtonClick}
 							disabled={
@@ -325,7 +326,7 @@ export default function CareerFormPage() {
 								(activeSection === 2 && (!data.reason || !confirm)) ||
 								loading
 							}
-							className="flex items-center justify-center gap-2 self-start mt-4 px-12 py-3 font-bold typo-b-lg text-white rounded-full bg-gradient-to-r gradient-color hover:scale-105 transition duration-300 disabled:opacity-70"
+							className="!w-full typo-h5"
 						>
 							{loading ? (
 								<>
@@ -337,7 +338,7 @@ export default function CareerFormPage() {
 							) : (
 								"Langkah Berikutnya"
 							)}
-						</button>
+						</Button>
 					</form>
 				</section>
 			</main>
