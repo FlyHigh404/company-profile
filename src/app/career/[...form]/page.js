@@ -326,7 +326,7 @@ export default function CareerFormPage() {
 								(activeSection === 2 && (!data.reason || !confirm)) ||
 								loading
 							}
-							className="!w-full typo-h5"
+							className="!w-full typo-h5 flex items-center justify-center gap-2"
 						>
 							{loading ? (
 								<>

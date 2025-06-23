@@ -3,7 +3,6 @@ import CareerImg1 from "@/assets/images/career-img-1.png";
 import CareerImg2 from "@/assets/images/career-img-2.png";
 import CareerImg3 from "@/assets/images/career-img-3.png";
 import { ButtonLink } from "@/components/shared/Button";
-import Link from "next/link";
 const imageList = [CareerImg1, CareerImg2, CareerImg3];
 
 export default function CareerSection() {
@@ -41,7 +40,7 @@ export default function CareerSection() {
 					inovasi masa depan.
 				</p>
 
-				<ButtonLink href="/career" className="typo-b-md" >
+				<ButtonLink href="/career" className="font-heading typo-b-lg tracking-wider">
 					Raih Peluangmu!
 				</ButtonLink>
 			</div>

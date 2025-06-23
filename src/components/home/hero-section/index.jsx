@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, useScroll, useSpring, useTransform } from "motion/react";
 import { useRef } from "react";
+import { ButtonLink } from "@/components/shared/Button";
 
 export default function HeroSection() {
 	const ref = useRef(null);
@@ -48,12 +49,9 @@ export default function HeroSection() {
 					Inovasi Teknologi untuk Mobilitas yang Lebih Hijau dan Terintegrasi
 				</p>
 
-				<Link
-					href="#product"
-					className="py-2 px-8 md:px-10 rounded-full bg-gradient-to-r gradient-color font-body font-semibold leading-relaxed text-base sm:text-xl lg:text-2xl text-neutral-50"
-				>
+				<ButtonLink href="#product" className="typo-h5">
 					Cari Tahu Solusi Kami
-				</Link>
+				</ButtonLink>
 			</div>
 		</section>
 	);

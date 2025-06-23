@@ -105,8 +105,12 @@ export default function ContactForm() {
 
 						<div className="space-y-2 font-medium typo-b-lg text-neutral-600">
 							<p className="font-bold">Alamat</p>
-							<p>Jl. Medayu No. 123, Ngagel, Surabaya, Indonesia</p>
-							<Link target="_blank" href="https://g.co/kgs/Ayppgeb" className="underline underline-offset-2">
+							<p>Surabaya, Jawa Timur, Indonesia</p>
+							<Link
+								target="_blank"
+								href="https://maps.app.goo.gl/wk4DoQc2FHWTwnGe7"
+								className="underline underline-offset-2"
+							>
 								Buka di Peta
 							</Link>
 						</div>
@@ -119,31 +123,19 @@ export default function ContactForm() {
 						Hubungi kami untuk konsultasi layanan, kerja sama strategis, atau kebutuhan solusi digital khusus.
 					</p>
 
-					<form onSubmit={handleSubmit} className="w-full flex flex-col gap-6">
-						<InputField
-							type="text"
-							name="name"
-							value={data.name}
-							onChange={handleInputChange}
-							placeholder="Nama Anda"
-						/>
-						<InputField
-							type="email"
-							name="email"
-							value={data.email}
-							onChange={handleInputChange}
-							placeholder="Email Aktif"
-						/>
+					<form onSubmit={handleSubmit} className="w-full flex flex-col gap-10">
+						<InputField type="text" name="name" value={data.name} onChange={handleInputChange} label="Nama Anda" />
+						<InputField type="email" name="email" value={data.email} onChange={handleInputChange} label="Email Aktif" />
 						<TextAreaField
 							rows="4"
 							name="message"
 							value={data.message}
 							onChange={handleInputChange}
-							placeholder="Tulis pesan Anda di sini..."
+							label="Tulis pesan Anda di sini..."
 						/>
 						<Button
 							type="submit"
-							className="typo-b-md w-xs self-center"
+							className="w-full mt-8 typo-h5 tracking-widest flex justify-center items-center gap-2"
 							disabled={loading}
 						>
 							{loading ? (

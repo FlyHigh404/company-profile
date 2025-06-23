@@ -108,10 +108,7 @@ export default function ListJob() {
 						</div>
 
 						<div className="mt-10 flex justify-end">
-							<ButtonLink
-								href={`/career/${job.id}`}
-								className="bg-gradient-to-r gradient-color typo-b-sm"
-							>
+							<ButtonLink href={`/career/${job.id}`} className="typo-b-sm !px-6 !py-3">
 								Lihat lowongan
 							</ButtonLink>
 						</div>

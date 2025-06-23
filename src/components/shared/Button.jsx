@@ -14,10 +14,11 @@ import Link from "next/link";
 export function Button({ children, ...props }) {
 	return (
 		<button
+			{...props}
 			style={{
-				backgroundSize: "200% 100%"
+				backgroundSize: "300% 100%"
 			}}
-			className={`font-semibold tracking-wider text-neutral-50 w-fit px-8 py-4 rounded-full bg-gradient-to-bl gradient-color bg-left-bottom flex justify-center hover:bg-right-top hover:scale-102 active:scale-102 disabled:opacity-70 transition-all ${props.className}`}
+			className={`font-semibold tracking-wide text-neutral-50 w-fit px-8 py-4 rounded-full bg-gradient-to-l from-[#ef9419] via-[#c94f1e] to-[#ef9419] bg-left-bottom flex justify-center hover:bg-right-top hover:scale-102 active:scale-102 disabled:opacity-70 transition-all duration-300 ${props.className}`}
 		>
 			{children}
 		</button>
@@ -39,9 +40,9 @@ export function ButtonLink({ children, ...props }) {
 		<Link
 			{...props}
 			style={{
-				backgroundSize: "200% 100%"
+				backgroundSize: "300% 100%"
 			}}
-			className={`font-semibold tracking-wider text-neutral-50 w-fit px-8 py-4 rounded-full bg-gradient-to-bl gradient-color bg-left-bottom flex justify-center hover:bg-right-top hover:scale-102 active:scale-102 disabled:opacity-70 transition-all ${props.className}`}
+			className={`font-semibold tracking-wide text-neutral-50 w-fit px-8 py-4 rounded-full bg-gradient-to-l from-[#ef9419] via-[#c94f1e] to-[#ef9419] bg-left-bottom flex justify-center hover:bg-right-top hover:scale-102 active:scale-102 disabled:opacity-70 transition-all duration-300 ${props.className}`}
 		>
 			{children}
 		</Link>
