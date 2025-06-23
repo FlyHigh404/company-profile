@@ -9,6 +9,7 @@ import Link from "next/link";
 import { InputField, TextAreaField } from "@/components/shared/InputField";
 import { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
+import { Button } from "@/components/shared/Button";
 
 const dataInit = {
 	name: "",
@@ -113,8 +114,8 @@ export default function ContactForm() {
 				</div>
 
 				<div className="w-full max-w-md md:max-w-lg mt-10 p-10 border-2 border-neutral-300 rounded-2xl shadow-2xs bg-neutral-50 flex flex-col gap-4">
-					<h3 className="typo-h3 font-bold text-neutral-700 text-center">Kirim Pesan Cepat</h3>
-					<p className="mb-10 typo-b-lg font-medium text-neutral-600 text-center lg:text-left">
+					<h3 className="typo-h3 font-bold text-neutral-700 text-start ">Kirim Pesan Cepat</h3>
+					<p className="text-start mb-10 typo-b-lg font-medium text-neutral-600  lg:text-left">
 						Hubungi kami untuk konsultasi layanan, kerja sama strategis, atau kebutuhan solusi digital khusus.
 					</p>
 
@@ -140,9 +141,9 @@ export default function ContactForm() {
 							onChange={handleInputChange}
 							placeholder="Tulis pesan Anda di sini..."
 						/>
-						<button
+						<Button
 							type="submit"
-							className="flex items-center justify-center gap-2 self-start mt-4 px-12 py-3 font-bold typo-b-lg text-white rounded-full bg-gradient-to-r gradient-color hover:scale-105 transition duration-300 disabled:opacity-70"
+							className="typo-b-md w-xs self-center"
 							disabled={loading}
 						>
 							{loading ? (
@@ -153,7 +154,7 @@ export default function ContactForm() {
 							) : (
 								"Kirim"
 							)}
-						</button>
+						</Button>
 					</form>
 				</div>
 			</section>

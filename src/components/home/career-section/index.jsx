@@ -2,6 +2,7 @@ import Image from "next/image";
 import CareerImg1 from "@/assets/images/career-img-1.png";
 import CareerImg2 from "@/assets/images/career-img-2.png";
 import CareerImg3 from "@/assets/images/career-img-3.png";
+import { ButtonLink } from "@/components/shared/Button";
 import Link from "next/link";
 const imageList = [CareerImg1, CareerImg2, CareerImg3];
 
@@ -40,12 +41,9 @@ export default function CareerSection() {
 					inovasi masa depan.
 				</p>
 
-				<Link
-					href="/career"
-					className="w-fit mt-6 px-10 py-3 rounded-full bg-gradient-to-r gradient-color font-body font-semibold text-lg text-neutral-50 transition duration-300 hover:scale-110"
-				>
+				<ButtonLink href="/career" className="typo-b-md" >
 					Raih Peluangmu!
-				</Link>
+				</ButtonLink>
 			</div>
 		</section>
 	);

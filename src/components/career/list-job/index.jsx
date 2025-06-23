@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { Alert, User, Gaji, Stack, Search, Dropdown } from "@/assets/icons/IconCareer";
 import Link from "next/link";
+import { ButtonLink } from "@/components/shared/Button";
 
 export default function ListJob() {
 	const [jobs, setJobs] = useState([]);
@@ -62,7 +63,7 @@ export default function ListJob() {
 					<select
 						value={selected}
 						onChange={(e) => setSelected(e.target.value)}
-						className="cursor-pointer w-full py-2 px-6 pe-11 border border-neutral-400 rounded-full bg-white focus:outline-none focus:ring-1 focus:ring-primary-neutral typo-b-rg text-neutral-800 appearance-none"
+						className="cursor-pointer w-full py-2 px-6 pe-11 border border-neutral-400 rounded-full bg-white focus:outline-none  typo-b-rg text-neutral-800 appearance-none"
 					>
 						{Array.isArray(positions) &&
 							positions.map((position, i) => (
@@ -107,12 +108,12 @@ export default function ListJob() {
 						</div>
 
 						<div className="mt-10 flex justify-end">
-							<Link
+							<ButtonLink
 								href={`/career/${job.id}`}
-								className="block px-6 py-2 rounded-full bg-gradient-to-r gradient-color font-medium typo-b-sm text-neutral-50 transition duration-300 hover:scale-105"
+								className="bg-gradient-to-r gradient-color typo-b-sm"
 							>
 								Lihat lowongan
-							</Link>
+							</ButtonLink>
 						</div>
 					</div>
 				))}
