@@ -20,7 +20,7 @@ export default function HeroSection() {
 
 	return (
 		<section
-			id="hero"
+			id="home"
 			className="overflow-hidden w-full min-h-screen py-10 flex flex-col items-center justify-evenly gap-8"
 		>
 			<h1 className="z-10 w-11/12 md:w-10/12 lg:w-11/12 py-4 font-heading leading-none tracking-wide text-start lg:text-center text-[2.5rem] sm:text-[4rem] md:text-[4.5rem] lg:text-[6rem] typo-gradient">

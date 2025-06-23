@@ -38,6 +38,10 @@ const sections = [
 		href: "#portfolio"
 	},
 	{
+		title: "Karir",
+		href: "#career"
+	},
+	{
 		title: "Kontak",
 		href: "#contact"
 	}
@@ -50,9 +54,11 @@ export default function NavigationBar() {
 	const scrollToSection = (sectionId) => {
 		const element = document.getElementById(sectionId.replace("#", ""));
 		if (element) {
-			element.scrollIntoView({ behavior: "smooth" });
-			setActiveSection(sectionId);
+			window.scrollTo({ top: element.offsetTop - 10, behavior: "smooth" });
+		} else {
+			window.location.href = `/${sectionId}`;
 		}
+		setActiveSection(sectionId);
 	};
 
 	useEffect(() => {
@@ -144,7 +150,9 @@ export default function NavigationBar() {
 											"font-body text-base bg-transparent text-gray-100 hover:bg-zinc-800 hover:text-gray-100 focus:bg-zinc-800 focus:text-gray-100 data-[active]:bg-zinc-800/80"
 									})}
 								>
-									<Link href="/career">Karir</Link>
+									<Link href="/career" className="cursor-pointer">
+										<Button className="cursor-pointer">Karir</Button>
+									</Link>
 								</NavigationMenuLink>
 							</NavigationMenuItem>
 
@@ -194,13 +202,17 @@ export default function NavigationBar() {
 									{section.title}
 								</button>
 							))}
-							<Link
-								href="/career"
-								className="px-4 py-2 text-left font-body text-gray-100 hover:bg-zinc-700 rounded-md transition-colors cursor-pointer"
-								onClick={() => setIsMobileMenuOpen(false)}
-							>
-								Karir
+							<Link href="/career" className="cursor-pointer">
+								<Button
+									className="px-4 py-2 text-left font-body text-gray-100 hover:bg-zinc-700 rounded-md transition-colors cursor-pointer"
+									onClick={() => {
+										setIsMobileMenuOpen(false);
+									}}
+								>
+									Karir
+								</Button>
 							</Link>
+
 							<Button
 								onClick={() => {
 									scrollToSection("#contact");
@@ -208,7 +220,7 @@ export default function NavigationBar() {
 								}}
 								className="mx-4 my-2 font-body bg-gray-200 text-zinc-900 hover:bg-gray-300 rounded-full cursor-pointer"
 							>
-								Hubungi Kami
+								Chat Sekarang
 							</Button>
 						</nav>
 					</div>

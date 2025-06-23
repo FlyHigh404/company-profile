@@ -6,6 +6,7 @@ import Facebook from "@/assets/icons/Facebook";
 import Instagram from "@/assets/icons/Instagram";
 import ArrowToTop from "@/assets/icons/ArrowToTop";
 import Link from "next/link";
+import { Button } from "@/components/shared/Button";
 import { useRef } from "react";
 import { motion, useScroll, useSpring, useTransform } from "motion/react";
 
@@ -35,19 +36,19 @@ export default function Footer() {
 					<div className="typo-b-md text-neutral-700 flex flex-col gap-2">
 						<p className="font-bold typo-b-lg">Navigasi</p>
 
-						<Link className="underline underline-offset-2" href="#">
+						<Link className="underline underline-offset-2" href="/#about">
 							Tentang Kami
 						</Link>
 
-						<Link className="underline underline-offset-2" href="#">
+						<Link className="underline underline-offset-2" href="/#services">
 							Layanan
 						</Link>
 
-						<Link className="underline underline-offset-2" href="#">
+						<Link className="underline underline-offset-2" href="/#contact">
 							Kontak
 						</Link>
 
-						<Link className="underline underline-offset-2" href="#">
+						<Link className="underline underline-offset-2" href="/#career">
 							Makro
 						</Link>
 					</div>
@@ -71,23 +72,23 @@ export default function Footer() {
 						<Link target="_blank" href="https://www.instagram.com/flyhighcorp_/">
 							<Instagram />
 						</Link>
-						<Link target="_blank" href="">
+						<Link target="_blank" href="https://www.facebook.com/flyhighsinergi">
 							<Facebook />
 						</Link>
-						<Link target="_blank" href="">
+						<Link target="_blank" href="https://twitter.com/flyhighsinergi">
 							<Twitter />
 						</Link>
 					</div>
 				</div>
 
 				{/* Back To Top */}
-				<Link
-					href="#start"
-					className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col justify-center items-center gap-2"
+				<button
+					onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+					className="cursor-pointer absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col justify-center items-center gap-2"
 				>
 					<ArrowToTop />
 					<p className="typo-b-md text-neutral-800">Kembali Ke Atas</p>
-				</Link>
+				</button>
 			</motion.div>
 		</footer>
 	);

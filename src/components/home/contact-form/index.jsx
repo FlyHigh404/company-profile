@@ -53,103 +53,104 @@ export default function ContactForm() {
 	};
 
 	return (
-		<>
-			<Toaster position="top-center" reverseOrder={false} />
+		<section
+			id="contact"
+			className="overflow-hidden w-full min-h-screen py-20 px-4 lg:px-16 grid grid-cols-1 lg:grid-cols-[55%_45%] items-center lg:items-start place-items-center gap-4"
+		>
+			<div className="flex flex-col gap-10 text-center lg:text-left">
+				<h1 className="typo-h1 typo-gradient">Siap Membantu Mewujudkan Solusi Terbaik</h1>
+				<p className="typo-b-lg text-neutral-600">
+					Kami terbuka untuk berbagai bentuk kerja sama, konsultasi, maupun pertanyaan terkait layanan dan produk kami.
+					Silakan hubungi tim kami melalui formulir atau informasi kontak di bawah ini.
+				</p>
 
-			<section className="overflow-hidden w-full min-h-screen py-20 px-4 lg:px-16 grid grid-cols-1 lg:grid-cols-[55%_45%] items-center lg:items-start place-items-center gap-4">
-				<div className="flex flex-col gap-10 text-center lg:text-left">
-					<h1 className="typo-h1 typo-gradient">Siap Membantu Mewujudkan Solusi Terbaik</h1>
-					<p className="typo-b-lg text-neutral-600">
-						Kami terbuka untuk berbagai bentuk kerja sama, konsultasi, maupun pertanyaan terkait layanan dan produk
-						kami. Silakan hubungi tim kami melalui formulir atau informasi kontak di bawah ini.
-					</p>
-
-					<div className="flex flex-col gap-8">
-						<div className="flex flex-col lg:flex-row gap-8 items-center lg:items-start justify-center lg:justify-start">
-							<div className="space-y-2 font-medium typo-b-lg text-neutral-600">
-								<p className="font-bold">Kontak Kami</p>
-								<Link
-									className="block underline underline-offset-2"
-									href="mailto:flyhighsinergi.idn@gmail.com"
-									target="_blank"
-								>
-									flyhighsinergi.idn@gmail.com
-								</Link>
-								<Link className="block underline underline-offset-2" href="tel:+628543657890" target="_blank">
-									+628543657890
-								</Link>
-							</div>
-
-							<div className="space-y-2 font-medium typo-b-lg text-neutral-600">
-								<p className="font-bold">Ikuti Kami</p>
-								<div className="flex flex-row gap-4 items-center">
-									<Link
-										target="_blank"
-										href="https://www.linkedin.com/company/cv-flyhigh-sinergi-indonesia/"
-										className="hover:scale-110"
-									>
-										<Linkedin />
-									</Link>
-									<Link target="_blank" href="https://facebook.com/flyhigh" className="hover:scale-110">
-										<Facebook />
-									</Link>
-									<Link target="_blank" href="https://x.com/flyhigh" className="hover:scale-110">
-										<Twitter />
-									</Link>
-									<Link target="_blank" href="https://www.instagram.com/flyhighcorp_/" className="hover:scale-110">
-										<Instagram />
-									</Link>
-								</div>
-							</div>
+				<div className="flex flex-col gap-8">
+					<div className="flex flex-col lg:flex-row gap-8 items-center lg:items-start justify-center lg:justify-start">
+						<div className="space-y-2 font-medium typo-b-lg text-neutral-600">
+							<p className="font-bold">Kontak Kami</p>
+							<Link
+								className="block underline underline-offset-2"
+								href="mailto:flyhighsinergi.idn@gmail.com"
+								target="_blank"
+							>
+								flyhighsinergi.idn@gmail.com
+							</Link>
+							<Link className="block underline underline-offset-2" href="tel:+628543657890" target="_blank">
+								+628543657890
+							</Link>
 						</div>
 
 						<div className="space-y-2 font-medium typo-b-lg text-neutral-600">
-							<p className="font-bold">Alamat</p>
-							<p>Surabaya, Jawa Timur, Indonesia</p>
-							<Link
-								target="_blank"
-								href="https://maps.app.goo.gl/wk4DoQc2FHWTwnGe7"
-								className="underline underline-offset-2"
-							>
-								Buka di Peta
-							</Link>
+							<p className="font-bold">Ikuti Kami</p>
+							<div className="flex flex-row gap-4 items-center">
+								<Link
+									target="_blank"
+									href="https://www.linkedin.com/company/cv-flyhigh-sinergi-indonesia/"
+									className="hover:scale-110"
+								>
+									<Linkedin />
+								</Link>
+								<Link target="_blank" href="https://www.instagram.com/flyhighcorp_/" className="hover:scale-110">
+									<Instagram />
+								</Link>
+								<Link target="_blank" href="https://facebook.com/flyhighsinergi" className="hover:scale-110">
+									<Facebook />
+								</Link>
+								<Link target="_blank" href="https://x.com/flyhighsinergi" className="hover:scale-110">
+									<Twitter />
+								</Link>
+							</div>
 						</div>
 					</div>
-				</div>
 
-				<div className="w-full max-w-md md:max-w-lg mt-10 p-10 border-2 border-neutral-300 rounded-2xl shadow-2xs bg-neutral-50 flex flex-col gap-4">
-					<h3 className="typo-h3 font-bold text-neutral-700 text-start ">Kirim Pesan Cepat</h3>
-					<p className="text-start mb-10 typo-b-lg font-medium text-neutral-600  lg:text-left">
-						Hubungi kami untuk konsultasi layanan, kerja sama strategis, atau kebutuhan solusi digital khusus.
-					</p>
-
-					<form onSubmit={handleSubmit} className="w-full flex flex-col gap-10">
-						<InputField type="text" name="name" value={data.name} onChange={handleInputChange} label="Nama Anda" />
-						<InputField type="email" name="email" value={data.email} onChange={handleInputChange} label="Email Aktif" />
-						<TextAreaField
-							rows="4"
-							name="message"
-							value={data.message}
-							onChange={handleInputChange}
-							label="Tulis pesan Anda di sini..."
-						/>
-						<Button
-							type="submit"
-							className="w-full mt-8 typo-h5 tracking-widest flex justify-center items-center gap-2"
-							disabled={loading}
+					<div className="space-y-2 font-medium typo-b-lg text-neutral-600">
+						<p className="font-bold">Alamat</p>
+						<p>Surabaya, Jawa Timur, Indonesia</p>
+						<Link
+							target="_blank"
+							href="https://maps.app.goo.gl/wk4DoQc2FHWTwnGe7"
+							className="underline underline-offset-2"
 						>
-							{loading ? (
-								<>
-									<Loading />
-									Mengirim...
-								</>
-							) : (
-								"Kirim"
-							)}
-						</Button>
-					</form>
+							Buka di Peta
+						</Link>
+					</div>
 				</div>
-			</section>
-		</>
+			</div>
+
+			<div className="w-full max-w-md md:max-w-lg mt-10 p-10 border-2 border-neutral-300 rounded-2xl shadow-2xs bg-neutral-50 flex flex-col gap-4">
+				<h3 className="typo-h3 font-bold text-neutral-700 text-start ">Kirim Pesan Cepat</h3>
+				<p className="text-start mb-10 typo-b-lg font-medium text-neutral-600  lg:text-left">
+					Hubungi kami untuk konsultasi layanan, kerja sama strategis, atau kebutuhan solusi digital khusus.
+				</p>
+
+				<form onSubmit={handleSubmit} className="w-full flex flex-col gap-10">
+					<InputField type="text" name="name" value={data.name} onChange={handleInputChange} label="Nama Anda" />
+					<InputField type="email" name="email" value={data.email} onChange={handleInputChange} label="Email Aktif" />
+					<TextAreaField
+						rows="4"
+						name="message"
+						value={data.message}
+						onChange={handleInputChange}
+						label="Tulis pesan Anda di sini..."
+					/>
+					<Button
+						type="submit"
+						className="w-full mt-8 typo-h5 tracking-widest flex justify-center items-center gap-2"
+						disabled={loading}
+					>
+						{loading ? (
+							<>
+								<Loading />
+								Mengirim...
+							</>
+						) : (
+							"Kirim"
+						)}
+					</Button>
+				</form>
+			</div>
+
+			<Toaster position="top-center" reverseOrder={false} />
+		</section>
 	);
 }

@@ -8,7 +8,7 @@ const imageList = [CareerImg1, CareerImg2, CareerImg3];
 export default function CareerSection() {
 	return (
 		<section
-			id="karir"
+			id="career"
 			className="overflow-hidden w-full min-h-screen py-20 px-4 md:px-8 lg:px-16 flex flex-col md:flex-row gap-4 lg:gap-10"
 		>
 			{/* Image Wrapper */}

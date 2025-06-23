@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useRef, useEffect, useState } from "react";
 import ServiceSlider from "./ServiceSlider";
+import { ButtonLink } from "@/components/shared/Button";
 
 const useIntersectionObserver = (threshold = 0.3) => {
 	const sectionRef = useRef(null);
@@ -16,17 +17,6 @@ const useIntersectionObserver = (threshold = 0.3) => {
 
 	return { sectionRef, inView };
 };
-
-const ActionButton = ({ href, children }) => (
-	<a
-		href={href}
-		target="_blank"
-		rel="noopener noreferrer"
-		className="inline-block py-3 md:py-3.5 px-6 md:px-8 bg-gradient-to-r from-[#f1740d] to-[#f4541c] text-white rounded-[32px] font-medium no-underline shadow-[0_2px_8px_rgba(244,84,28,0.08)] transition-colors duration-200 hover:bg-gradient-to-r hover:from-[#f4541c] hover:to-[#f1740d] typo-b-md"
-	>
-		{children}
-	</a>
-);
 
 function ProductSectionHeading() {
 	return (
@@ -57,7 +47,13 @@ function VoltwheelsSection() {
 						Voltwheels dirancang untuk mendukung mobilitas hijau sekaligus membuka peluang besar dalam pasar mobilitas
 						berkelanjutan yang tengah tumbuh pesat.
 					</p>
-					<ActionButton href="https://voltwheelsindonesia.com/">Jelajahi Voltwheels</ActionButton>
+					<ButtonLink
+						href="https://voltwheelsindonesia.com/"
+						target="_blank"
+						className="font-heading typo-b-lg tracking-wider"
+					>
+						Jelajahi Voltwheels
+					</ButtonLink>
 				</div>
 				<div
 					ref={sectionRef}
@@ -148,7 +144,10 @@ function BetulinSection() {
 						Betulin hadir sebagai fondasi infrastruktur teknis kendaraan listrik, dengan model bisnis multi-sided yang
 						scalable dan berpotensi menjadi standar baru dalam layanan purna jual kendaraan listrik di Indonesia.
 					</p>
-					<ActionButton href="#">Jelajahi Betulin</ActionButton>
+
+					<ButtonLink href="https://betulin.id/" target="_blank" className="font-heading typo-b-lg tracking-wider">
+						Jelajahi Betulin
+					</ButtonLink>
 				</div>
 			</div>
 		</section>
@@ -164,7 +163,13 @@ function ServiceSection() {
 					Kami bantu bisnis Anda lepas landas dengan solusi UI/UX, website, aplikasi mobile, dan layanan teknologi
 					lainnya yang cepat, tepat, dan profesional.
 				</p>
-				<ActionButton href="#">Dapatkan Solusi Anda</ActionButton>
+				<ButtonLink
+					href="mailto:flyhighsinergi.idn@gmail.com"
+					target="_blank"
+					className="font-heading typo-b-lg tracking-wider"
+				>
+					Dapatkan Solusi Anda
+				</ButtonLink>
 			</div>
 			<div>
 				<ServiceSlider />
