@@ -1,34 +1,40 @@
 import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Pagination } from "swiper/modules";
+import Image from "next/image";
 
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/free-mode";
+
+import serviceUI from "@/assets/images/service-ui.jpeg";
+import serviceWeb from "@/assets/images/service-web.jpeg";
+import serviceMobile from "@/assets/images/service-mobile.jpeg";
+import serviceJournal from "@/assets/images/service-journal.jpeg";
 
 const sliderData = [
 	{
 		title: "Website",
 		content:
 			"Website profesional untuk semua kebutuhan Anda mulai dari company profile hingga desain custom yang sepenuhnya personal.",
-		backgroundImage: "https://images.pexels.com/photos/5077048/pexels-photo-5077048.jpeg"
+		backgroundImage: serviceWeb
 	},
 	{
 		title: "Aplikasi Mobile",
 		content:
 			"Solusi aplikasi mobile berbasis Android dan iOS, dikembangkan sesuai dengan tujuan dan kebutuhan spesifik bisnis Anda.",
-		backgroundImage: "https://images.pexels.com/photos/3585074/pexels-photo-3585074.jpeg"
+		backgroundImage: serviceMobile
 	},
 	{
 		title: "Desain Antarmuka",
 		content: "Desain antarmuka dengan pendekatan berpusat pada pengguna, mulai dari wireframe hingga prototipe.",
-		backgroundImage: "https://images.pexels.com/photos/221185/pexels-photo-221185.jpeg"
+		backgroundImage: serviceUI
 	},
 	{
 		title: "Jurnal Ilmiah",
 		content:
 			"Penulisan jurnal ilmiah dengan standar akademik nasional dan internasional, disusun secara profesional untuk mendukung publikasi bereputasi.",
-		backgroundImage: "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=800&q=80"
+		backgroundImage: serviceJournal
 	}
 ];
 
@@ -79,14 +85,15 @@ const ServiceSlider = () => {
 			>
 				{sliderData.map((item) => (
 					<SwiperSlide key={item.title}>
-						<div
-							className="relative flex flex-col justify-end group rounded-2xl shadow-lg overflow-hidden h-[360px]"
-							style={{
-								backgroundImage: `url(${item.backgroundImage})`,
-								backgroundSize: "cover",
-								backgroundPosition: "center"
-							}}
-						>
+						<div className="relative flex flex-col justify-end group rounded-2xl shadow-lg overflow-hidden h-[360px]">
+							<Image
+								src={item.backgroundImage}
+								alt={item.title}
+								fill
+								style={{ objectFit: "cover", objectPosition: "center" }}
+								className="z-0"
+								priority
+							/>
 							<div className="absolute inset-0 bg-gradient-to-b from-black/10 to-black/80 group-hover:to-black/90 transition-all duration-500 z-10" />
 							<div className="relative z-20 p-6 flex flex-col items-start h-full justify-center text-center">
 								<h1
